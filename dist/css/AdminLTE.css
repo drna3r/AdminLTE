@@ -484,6 +484,7 @@ a:focus {
   line-height: 1;
   position: absolute;
   right: 55px;
+  direction: rtl;
 }
 .user-panel > .info > p {
   font-weight: 600;
