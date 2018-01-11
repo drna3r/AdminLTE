@@ -955,6 +955,7 @@ a:focus {
   border-bottom: 1px solid #f4f4f4;
   color: #444444;
   font-size: 14px;
+  text-align: right;
 }
 .navbar-nav > .notifications-menu > .dropdown-menu > li.footer > a,
 .navbar-nav > .messages-menu > .dropdown-menu > li.footer > a,
@@ -992,6 +993,8 @@ a:focus {
   padding: 0;
   list-style: none;
   overflow-x: hidden;
+  direction: rtl;
+  text-align: right;
 }
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a,
 .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a,
@@ -1023,13 +1026,13 @@ a:focus {
   padding: 10px 10px;
 }
 .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a > div > img {
-  margin: auto 10px auto auto;
+  margin: auto auto auto 10px;
   width: 40px;
   height: 40px;
 }
 .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a > h4 {
   padding: 0;
-  margin: 0 0 0 45px;
+  margin: 0 45px 0 0;
   color: #444444;
   font-size: 15px;
   position: relative;
