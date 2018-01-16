@@ -24,9 +24,7 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        <!--------------------------
-          | Your Page Content Here |
-          -------------------------->
+       <?php include_once 'new-customer.php';?>
 
     </section>
     <!-- /.content -->
