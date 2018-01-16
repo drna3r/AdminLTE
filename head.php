@@ -29,6 +29,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <!-------------------------------
+    CSS Files!
+    Manage Whit DepenLoader File In future !
+     -------------------------------->
+
+
+
+
+
+    <!-------------------------------
+    End - Css Files!
+     -------------------------------->
+
+
+
+
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
