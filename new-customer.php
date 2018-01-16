@@ -4,7 +4,7 @@ $page_title = 'مشتری جدید';
 $page_description = 'صفحه اضافه کردن مشتری جدید';
 
 //Include Config.php
-<?php include_once 'config.php'; ?>
+include_once 'config.php';
 ?>
     <!-- <head> -->
 <?php include_once 'head.php'; ?>
@@ -32,10 +32,10 @@ $page_description = 'صفحه اضافه کردن مشتری جدید';
                     <h3 class="box-title">ورود اطلاعات</h3>
                     <hr>
                     <div class="box-body">
-                        <form role="form" action="/action_page.php">
+                        <form role="form" action="./new-customer-action.php">
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">شماره موبایل</label>
-                                <input class="form-control" name="ttttttttttttt" placeholder="09000000000"
+                                <input class="form-control" name="mobile" placeholder="09000000000"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -44,7 +44,7 @@ $page_description = 'صفحه اضافه کردن مشتری جدید';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;"> نام خانوادگی</label>
-                                <input class="form-control" name="ttttttttttttt" placeholder="نام خانوادگی مشتری جدید"
+                                <input class="form-control" name="lastname" placeholder="نام خانوادگی مشتری جدید"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -53,7 +53,7 @@ $page_description = 'صفحه اضافه کردن مشتری جدید';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">نام</label>
-                                <input class="form-control" name="ttttttttttttt" placeholder="نام مشتری جدید"
+                                <input class="form-control" name="firstname" placeholder="نام مشتری جدید"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -62,7 +62,7 @@ $page_description = 'صفحه اضافه کردن مشتری جدید';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">آدرس</label>
-                                <input class="form-control" name="ttttttttttttt" placeholder="خیابان کوچه و ..."
+                                <input class="form-control" name="adress" placeholder="خیابان کوچه و ..."
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -71,7 +71,7 @@ $page_description = 'صفحه اضافه کردن مشتری جدید';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">نحوه آشنایی</label>
-                                <input class="form-control" name="ttttttttttttt" placeholder="نحوه آشنایی"
+                                <input class="form-control" name="introduction" placeholder="نحوه آشنایی"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -80,7 +80,7 @@ $page_description = 'صفحه اضافه کردن مشتری جدید';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">تاریخ تولد</label>
-                                <input class="form-control" name="ttttttttttttt" placeholder="تاریخ تولد"
+                                <input class="form-control" name="birthdate" placeholder="تاریخ تولد"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
