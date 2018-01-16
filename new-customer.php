@@ -2,6 +2,9 @@
 //page Information :
 $page_title = 'مشتری جدید';
 $page_description = 'صفحه اضافه کردن مشتری جدید';
+
+//Include Config.php
+<?php include_once 'config.php'; ?>
 ?>
     <!-- <head> -->
 <?php include_once 'head.php'; ?>
