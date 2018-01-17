@@ -1,3 +1,7 @@
+<?php
+$pagename = basename($_SERVER['REQUEST_URI']);
+
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -35,29 +39,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
     Manage Whit DepenLoader File In future !
      -------------------------------->
 
+    <?php switch ($pagename) { case "new-customer.php": ?>
+        <!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="plugins/iCheck/all.css">
+        <!-- Bootstrap Color Picker -->
+        <link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+        <!-- Bootstrap time Picker -->
+        <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
 
-
-    <!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
-    <!-- bootstrap datepicker -->
-    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="plugins/iCheck/all.css">
-    <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-    <!-- Bootstrap time Picker -->
-    <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
-
-
-
-
-    <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
+    <?php break; case "customer-list.php": ?>
+        <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <?php break; default: ?>
+        <!---------------------------------------- WHITHOUT SPESIFIC CSS ----------------------------------------------------------------------->
+    <?php } ?>
 
     <!-------------------------------
     End - Css Files!
