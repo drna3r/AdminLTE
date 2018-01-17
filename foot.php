@@ -16,6 +16,7 @@ JS Files!
 Manage Whit DepenLoader File In future !
  -------------------------------->
 
+//Get Name Of Page And Echo Spesific JS
 <?php switch ($pagename) { case "new-customer.php": ?>
     <!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
     <!-- Select2 -->
