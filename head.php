@@ -39,8 +39,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     Manage Whit DepenLoader File In future !
      -------------------------------->
 
+    <?php
     //Get Name Of Page And Echo Spesific CSS
-    <?php switch ($pagename) { case "new-customer.php": ?>
+    switch ($pagename) { case "new-customer.php": ?>
         <!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
         <!-- daterange picker -->
         <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">

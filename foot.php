@@ -16,8 +16,10 @@ JS Files!
 Manage Whit DepenLoader File In future !
  -------------------------------->
 
+
+<?php
 //Get Name Of Page And Echo Spesific JS
-<?php switch ($pagename) { case "new-customer.php": ?>
+switch ($pagename) { case "new-customer.php": ?>
     <!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
     <!-- Select2 -->
     <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
