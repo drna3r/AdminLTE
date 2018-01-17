@@ -127,6 +127,7 @@ Manage Whit DepenLoader File In future !
     $(function () {
         $('#example1').DataTable({
             "bLengthChange": false,
+            "bInfo": false,
             "oLanguage": {
                 "sSearch": "جستجوی مشتریان ",
                 "oPaginate": {
