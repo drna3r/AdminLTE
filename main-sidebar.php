@@ -33,6 +33,7 @@
             <li class="header">منو اصلی</li>
             <!-- Optionally, you can add icons to the links -->
             <li><a href="./new-customer.php"><i class="fa fa-circle-o text-red"></i> <span>مشتری جدید</span></a></li>
+            <li><a href="./customer-list.php"><i class="fa fa-circle-o text-red"></i> <span>لیست مشتریان</span></a></li>
             <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
             <li class="treeview">

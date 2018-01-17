@@ -12,9 +12,15 @@
 
 
 <!-------------------------------
-CSS Files!
+JS Files!
 Manage Whit DepenLoader File In future !
  -------------------------------->
+
+
+
+
+
+<!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
 <!-- Select2 -->
 <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- InputMask -->
@@ -107,6 +113,31 @@ Manage Whit DepenLoader File In future !
     })
 </script>
 
+
+
+
+
+<!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
+
+<!-- DataTables -->
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example1').DataTable({
+            "bLengthChange": false,
+            "oLanguage": {
+                "sSearch": "جستجوی مشتریان ",
+                "oPaginate": {
+                    "sNext": "صفحه یعد",
+                    "sPrevious": "صفحه قبل"
+                 },
+
+            }
+        })
+    })
+</script>
 
 
 <!-------------------------------

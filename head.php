@@ -35,6 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     Manage Whit DepenLoader File In future !
      -------------------------------->
 
+
+
+    <!---------------------------------------- new-customer.php ----------------------------------------------------------------------->
     <!-- daterange picker -->
     <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap datepicker -->
@@ -48,6 +51,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Select2 -->
     <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
 
+
+
+
+    <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 
     <!-------------------------------
