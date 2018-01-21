@@ -55,7 +55,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
         <!-- Select2 -->
         <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
+        <!-- Modal -->
+        <style>
+            .example-modal .modal {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                right: auto;
+                left: auto;
+                display: block;
+                z-index: 1;
+            }
 
+            .example-modal .modal {
+                background: transparent !important;
+            }
+        </style>
     <?php break; case "customer-list.php": ?>
         <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
         <!-- DataTables -->
