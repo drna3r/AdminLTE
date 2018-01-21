@@ -82,6 +82,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
         <!-- DataTables -->
         <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <?php break; case "admin-panel.php": ?>
+        <!---------------------------------------- admin-panel.php ----------------------------------------------------------------------->
+        <style>
+            th{
+                text-align: right;
+                direction: rtl;
+            }
+        </style>
+    <?php break; case "invoice.php": ?>
+        <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
+        <style>
+            *{
+                direction:rtl;
+                text-align:right;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: right;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+
+            tr:hover {
+                outline:2px dotted gray;
+            }
+        </style>
     <?php break; default: ?>
         <!---------------------------------------- WHITHOUT SPESIFIC CSS ----------------------------------------------------------------------->
     <?php } ?>
