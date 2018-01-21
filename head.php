@@ -55,8 +55,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
         <!-- Select2 -->
         <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
-        <!-- Modal -->
+        <!-- persian-datepicker -->
+        <link rel="stylesheet" href="bower_components/persian-datepicker/dist/css/persian-datepicker.css"/>
+        <!-- CSS Customize Page -->
         <style>
+            /*Persian datePicker Font*/
+            .datepicker-plot-area{
+                font: 12px IRAN-Sans,Tahoma;
+            }
+            /* Modals*/
             .example-modal .modal {
                 position: relative;
                 top: auto;

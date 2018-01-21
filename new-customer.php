@@ -80,7 +80,7 @@ include_once 'config.php';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">تاریخ تولد</label>
-                                <input class="form-control" name="birthdate" placeholder="تاریخ تولد" tabindex="4"
+                                <input class="form-control pdpicker" name="birthdate" placeholder="تاریخ تولد" tabindex="4"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;

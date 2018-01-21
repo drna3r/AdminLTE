@@ -27,9 +27,9 @@ switch ($pagename) { case "new-customer.php": ?>
     <script src="plugins/input-mask/jquery.inputmask.js"></script>
     <script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
     <script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
-    <!-- date-range-picker -->
-    <script src="bower_components/moment/min/moment.min.js"></script>
-    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- persian-datepicker -->
+    <script src="bower_components/persian-date/dist/persian-date.js"></script>
+    <script src="bower_components/persian-datepicker/dist/js/persian-datepicker.min.js"></script>
     <!-- bootstrap datepicker -->
     <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <!-- bootstrap color picker -->
@@ -44,6 +44,18 @@ switch ($pagename) { case "new-customer.php": ?>
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <!-- Page script -->
     <script>
+        //Persian DatePicker Config
+        $(document).ready(function() {
+            $(".pdpicker").pDatepicker({
+                observer: true,
+                format: 'YYYY/MM/DD',
+                altField: '.observer-example-alt',
+                toolbox:{
+                    "enabled": false,
+                }
+            });
+
+        });
         $(function () {
             //Initialize Select2 Elements
             $('.select2').select2()
