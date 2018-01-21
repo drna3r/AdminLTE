@@ -35,7 +35,7 @@ include_once 'config.php';
                         <form role="form" action="./new-customer-action.php">
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">شماره موبایل</label>
-                                <input class="form-control" name="mobile" placeholder="09000000000"
+                                <input class="form-control" name="mobile" placeholder="09000000000" tabindex="3"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -44,7 +44,7 @@ include_once 'config.php';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;"> نام خانوادگی</label>
-                                <input class="form-control" name="lastname" placeholder="نام خانوادگی مشتری جدید"
+                                <input class="form-control" name="lastname" placeholder="نام خانوادگی مشتری جدید" tabindex="2"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -53,16 +53,16 @@ include_once 'config.php';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">نام</label>
-                                <input class="form-control" name="firstname" placeholder="نام مشتری جدید"
+                                <input class="form-control" name="firstname" placeholder="نام مشتری جدید" tabindex="1"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
                                cursor: auto;text-align: right;"
-                                       type="text">
+                                       type="text" autofocus>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label style="float: right;">آدرس</label>
-                                <input class="form-control" name="adress" placeholder="خیابان کوچه و ..."
+                                <label style="float: right;" >آدرس</label>
+                                <input class="form-control" name="adress" placeholder="خیابان کوچه و ..." tabindex="6"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -71,7 +71,7 @@ include_once 'config.php';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">نحوه آشنایی</label>
-                                <input class="form-control" name="introduction" placeholder="نحوه آشنایی"
+                                <input class="form-control" name="introduction" placeholder="نحوه آشنایی" tabindex="5"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -80,7 +80,7 @@ include_once 'config.php';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">تاریخ تولد</label>
-                                <input class="form-control" name="birthdate" placeholder="تاریخ تولد"
+                                <input class="form-control" name="birthdate" placeholder="تاریخ تولد" tabindex="4"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -88,7 +88,7 @@ include_once 'config.php';
                                        type="text">
                             </div>
                             <div class="box-footer form-group">
-                                <button type="submit" class="btn btn-primary">ثبت</button>
+                                <button type="submit" class="btn btn-primary" tabindex="7">ثبت</button>
                             </div>
 
                         </form>
