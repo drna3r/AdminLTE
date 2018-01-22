@@ -1,5 +1,5 @@
 <?php
-$pagename = basename($_SERVER['REQUEST_URI']);
+$pagename = basename(strtok($_SERVER['REQUEST_URI'], '?'));
 
 ?>
 <!DOCTYPE html>
@@ -82,6 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
         <!-- DataTables -->
         <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
     <?php break; case "admin-panel.php": ?>
         <!---------------------------------------- admin-panel.php ----------------------------------------------------------------------->
         <style>
