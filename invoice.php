@@ -2,10 +2,36 @@
 //page Information :
 $page_title = 'صدور فاکتور';
 $page_description = 'صفحه صدور فاکتور جدید برای مشتری';
-$cid = 0;
+$cid = $_GET["id"];
+
 //Include Config.php
 include_once 'config.php';
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+//Set Charset UTF-8
+$conn->set_charset("utf8");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT firstname, lastname FROM customer_list WHERE id=$cid";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+
+        $firstname = $row["firstname"];
+        $lastname = $row["lastname"];
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
 ?>
 
 <!-- <head> -->
@@ -31,8 +57,8 @@ include_once 'config.php';
 
         <div class="box box-default">
             <div class="box-header with-border">
-                <h3 class="box-title"></h3>
-                <hr>
+                <h3 class="box-title"><?php echo $firstname.' '.$lastname; ?></h3>
+                <br>
                 <div class="modal modal-danger fade" id="modal-danger">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -86,7 +112,7 @@ include_once 'config.php';
                             <td>هزینه خدمت</td>
                             <td>اعتبار نزد همکار</td>
                             <td>استفاده از اعتبار</td>
-                            <td>قابل استفاده از اعتبار</td>
+                            <td>اعتبار قابل استفاده</td>
                             <td>مبلغ قابل پرداخت</td>
                             <td style="visibility: hidden;"><button>حذف</button></td>
                         </tr>
