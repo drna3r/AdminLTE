@@ -61,8 +61,8 @@ include_once 'config.php';
                                        type="text" autofocus>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label style="float: right;" >آدرس</label>
-                                <input class="form-control" name="adress" placeholder="خیابان کوچه و ..." tabindex="6"
+                                <label style="float: right;" >کد معرف</label>
+                                <input class="form-control" id="rcode" name="rcode" placeholder="شماره مشتری معرف" tabindex="6"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
@@ -71,16 +71,26 @@ include_once 'config.php';
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">نحوه آشنایی</label>
-                                <input class="form-control" name="introduction" placeholder="نحوه آشنایی" tabindex="5"
-                                       style="
-                               background-repeat: no-repeat; background-attachment: scroll;
-                               background-size: 16px 18px; background-position: 98% 50%;
-                               cursor: auto;text-align: right;"
-                                       type="text">
+
+                                <select id="introduction" class="form-control" name="introduction" tabindex="5">
+                                    <option disabled selected>انتخاب نحوه آشنایی</option>
+                                    <option value="referral">معرف</option>
+                                    <option name="تلگرام">تلگرام</option>
+                                    <option name="اینستاگرام">اینستاگرام</option>
+                                </select>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">تاریخ تولد</label>
                                 <input class="form-control pdpicker" name="birthdate" placeholder="تاریخ تولد" tabindex="4"
+                                       style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;"
+                                       type="text" readonly="readonly">
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label style="float: right;" >آدرس</label>
+                                <input class="form-control" name="adress" placeholder="خیابان کوچه و ..." tabindex="6"
                                        style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
