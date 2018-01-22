@@ -41,7 +41,14 @@ include_once 'config.php';
                             <th>موبایل</th>
                             <th>تاریخ تولد</th>
                             <th>نحوه آشنایی</th>
-                            <th>صدور فاکتور</th>
+                            <th>آخرین مراجعه</th>
+                            <th>دفعات مراجعه</th>
+                            <th>اعتبار اختصاصی</th>
+                            <th>اعتبار عمومی</th>
+                            <th>گروه</th>
+                            <th>جمع کل پرداخت</th>
+                            <th>بیعانه</th>
+                            <th style="border-right: 1px solid #bcbcbc;">صدور فاکتور</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -72,7 +79,14 @@ include_once 'config.php';
                                     <td><?php echo $row["mobile"]; ?></td>
                                     <td><?php echo $row["birthdate"]; ?></td>
                                     <td><?php echo $row["introduction"]; ?></td>
-                                    <td><i class="fa fa-shopping-cart" aria-hidden="true"></i></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                     <td></td>
+                                     <td></td>
+                                    <td></td>
+                                    <td style="border-right: 1px solid #bcbcbc;text-align: center;"><a href="./invoice.php?id=<?php echo $row["id"]; ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></td>
                                 </tr>
 
                          <?php
