@@ -94,10 +94,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <?php break; case "invoice.php": ?>
         <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
         <style>
+
+            @media print
+            {
+                @page
+                {
+                    size: auto;
+                    margin: 0mm;
+                    size: portrait;
+                }
+
+
+                body * {
+                    visibility: hidden;
+                }
+                .section-to-print, .section-to-print * {
+                    visibility: visible;
+                }
+                .section-to-print {
+                    direction: rtl;
+                    text-align: center;
+                    position: absolute;
+                    width: 4.8cm;
+                    left: 0;
+                    top: 0 !important;
+                }
+
+                .content-wrapper{
+                    height: 3000px;
+                }
+            }
+
             *{
                 direction:rtl;
                 text-align:right;
             }
+
+            .section-to-print{
+                direction: rtl;
+                text-align: center;
+                position: absolute;
+                width: 4.8cm;
+                left: 500px;
+                top: 0px;
+            }
+
             table {
                 border-collapse: collapse;
                 width: 100%;
@@ -116,6 +157,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             tr:hover {
                 outline:2px dotted gray;
             }
+
         </style>
     <?php break; default: ?>
         <!---------------------------------------- WHITHOUT SPESIFIC CSS ----------------------------------------------------------------------->
