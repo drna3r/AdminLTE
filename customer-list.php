@@ -36,7 +36,8 @@ include_once 'config.php';
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>نام</th>
+                            <th>کد</th>
+                             <th>نام</th>
                             <th>نام خانوادگی</th>
                             <th>موبایل</th>
                             <th>تاریخ تولد</th>
@@ -74,6 +75,7 @@ include_once 'config.php';
                             while ($row = $result->fetch_assoc()) { ?>
 
                                 <tr>
+                                    <td><?php echo $row["id"]; ?></td>
                                     <td><?php echo $row["firstname"]; ?></td>
                                     <td><?php echo $row["lastname"]; ?></td>
                                     <td><?php echo $row["mobile"]; ?></td>
