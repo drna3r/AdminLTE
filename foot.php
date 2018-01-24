@@ -110,11 +110,12 @@ switch ($pagename) { case "new-customer.php": ?>
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <?php break; case "invoice.php": ?>
     <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
+    <script src="plugins/jquery-qrcode/jquery.qrcode.min.js"></script>
     <script>
         $(document).ready(function() {
 
             //Limit Of usable Credit / Set in Admin Panel
-            var percent = 50;
+            var percent = 25;
 
             //Value Of Customer's Deposit / Set In Customer Page
             var deposit = 20000;
@@ -242,14 +243,22 @@ switch ($pagename) { case "new-customer.php": ?>
                     row_id ++;
 
                     //Generate Html tr / td Table row For new Service Row.
-                    $("#services_list").append("<tr id='row"+ row_id +"'><td>" + newservice +
-                        "</td><td>" + newpartnet +
-                        "</td><td>" + newcost +
-                        "</td><td>" + newcredit +
-                        "</td><td>" + newc_check +
-                        "</td><td class='credt_pay'>" + newcredituse +
-                        "</td><td class='payment'>" + newpay +
-                        "</td><td><button class='remove' rowid='#row"+ row_id +"' pid='"+ partner_id +"'  cuse='"+ newcredituse +"'  payment='"+ newpay +"' >حذف</button></td></tr>");
+                    $("#services_list").append("<tr id='row" + row_id + "'>" +
+                        "<td>" + newservice + "</td>" +
+                        "<td>" + newpartnet + "</td>" +
+                        "<td>" + newcost + "</td>" +
+                        "<td>" + newcredit + "</td>" +
+                        "<td>" + newc_check + "</td>" +
+                        "<td class='credt_pay'>" + newcredituse + "</td>" +
+                        "<td class='payment'>" + newpay + "</td>" +
+                        "<td><button class='print' pservice='"+ newservice +"' ppartner='"+ newpartnet +"' ppayment='"+ newpay +"'>چاپ</button>" + "</td>" +
+                        "<td><button class='remove' rowid='#row"+ row_id +"' pid='"+ partner_id +"'  cuse='"+ newcredituse +"'  payment='"+ newpay +"' >حذف</button></td></tr>");
+
+                    //Generate Html tr / td Table row For Print Total Services.
+                    $("#tp_service").append("<tr>" +
+                        "<td>" + newservice + "</td>" +
+                        "<td>" + newpartnet + "</td>" +
+                        "<td>" + newpay + "</td></tr>");
 
                     //Reset (Empty and Set to defult) Value inpute for Add New Sevice.
                     reset_value();
@@ -289,27 +298,60 @@ switch ($pagename) { case "new-customer.php": ?>
 
             });
 
-            /*
-                $("#use_credit_pub").click(function() {
-
-                    if ($('#use_credit_pub').is(':checked')) {
-                        var ct = (($(".total_services").text() * percent) / 100 ) ;
-
-                        //limit Of Use Credit Public
-                            if($(".credit_pub").text() <= ct){
-                                credituse = credit;
-                            }else{
-                                credituse = ct;
-                            }
+            //Print Row
+            $("table").on("click", ".print", function(){
+                $("#pservice").text($(this).attr('pservice'));
+                $("#ppartner").text($(this).attr('ppartner'));
+                $("#ppayment").text($(this).attr('ppayment'));
+                window.print();
+            });
 
 
-                    }else{
+            //Calculate Public Credit in Payment
+            $("#use_credit_pub").click(function() {
 
-            console.log('else..!!!');
+                if ($('#use_credit_pub').is(':checked')) {
+                    var ct = ((totalservices() * percent) / 100);
+                    ct -= credt_pay;
+
+                    //limit Of Use Credit
+                    if(credit_pub <= ct){
+                        ct = credit_pub;
                     }
 
-                });
-            */
+                    $(".credit_pub").text(credit_pub - ct);
+                    $(".credt_payment").text(credt_pay + ct);
+                    $(".total").text(payment - ct);
+
+                    $("#add").prop('disabled', true);
+                }else {
+                    $(".credit_pub").text(credit_pub);
+                    $(".credt_payment").text(credt_pay);
+                    $(".total").text(payment);
+
+                    $("#add").prop('disabled', false);
+                }
+            });
+
+            //Calculate Deposit in Payment
+            $("#use_deposit").click(function() {
+                if ($('#use_deposit').is(':checked')) {
+                    if (deposit <= payment) {
+                        $(".total").text(payment - deposit);
+                        $(".deposit").text('0');
+                    } else {
+                        $(".total").text('0');
+                        $(".deposit").text(deposit - payment);
+                    }
+                    $("#use_credit_pub").attr("disabled", true);
+                    $("#add").prop('disabled', true);
+                }else {
+                    $(".total").text(payment);
+                    $(".deposit").text(deposit);
+                    $("#use_credit_pub").attr("disabled", false);
+                    $("#add").prop('disabled', false);
+                }
+            });
 
         });
 
@@ -317,6 +359,7 @@ switch ($pagename) { case "new-customer.php": ?>
         //Calculate Total Service Value
         function totalservices(){
             $(".total_services").text(Number($(".total").text()) + Number($(".credt_payment").text()));
+            return $(".total_services").text();
         }
 
         //Reset (Empty and Set to defult) Value inpute for Add New Sevice.
@@ -334,9 +377,12 @@ switch ($pagename) { case "new-customer.php": ?>
             $(".credit").text('0');
             $(".credituse").text('0');
             $(".pay").text('0');
+            $('#use_deposit').prop('checked', false);
+            $('#use_credit_pub').prop('checked', false);
         }
 
-
+        //QrCode Content / Load In Incoice Print / Set in Admin Panel
+        $('#qrcode').qrcode({width: 100,height: 100,text: "size doesn't matter"});
     </script>
     <?php break; default: ?>
     <!---------------------------------------- WHITHOUT SPESIFIC JS ----------------------------------------------------------------------->
