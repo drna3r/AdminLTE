@@ -84,15 +84,15 @@ $conn->close();
                         <table>
                             <tbody>
                             <tr>
-                                <th>مبلغ بیعانه</ht>
                                 <th>اعتبار عمومی</ht>
+                                <th>مبلغ بیعانه</ht>
                                 <th>جمع کل خدمات</ht>
                                 <th>اعتبار استفاده شده</ht>
                                 <th>جمع کل پرداخت</ht>
                             </tr>
                             <tr>
-                                <td><span class="deposit">0</span> (استفاده :<input id="use_deposit" type="checkbox">) </td>
                                 <td><span class="credit_pub">0</span> (استفاده :<input id="use_credit_pub" type="checkbox">) </td>
+                                <td><span class="deposit">0</span> (استفاده :<input id="use_deposit" type="checkbox">) </td>
                                 <td class="total_services">0</td>
                                 <td class="credt_payment">0</td>
                                 <td class="total">0</td>
@@ -115,6 +115,7 @@ $conn->close();
                             <td>اعتبار قابل استفاده</td>
                             <td>مبلغ قابل پرداخت</td>
                             <td style="visibility: hidden;"><button>حذف</button></td>
+                            <td style="visibility: hidden;"><button>چاپ</button></td>
                         </tr>
 
                         <tr>
@@ -150,9 +151,8 @@ $conn->close();
                             <th>
                                 <span type="text" class="pay" >0</span>
                             </th>
-                            <th style="visibility: hidden;">
-                                <button>حذف</button>
-                            </th>
+                            <th><button id="add">افزودن</button></th>
+                            <th></th>
                         </tr>
                         </tbody>
                     </table>
@@ -161,7 +161,7 @@ $conn->close();
 
 
                     <br>
-                    <button id="add">افزودن خدمت</button>
+
 
 
                 </div>
@@ -177,6 +177,117 @@ $conn->close();
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<!-- Print Section : Partner invoice Print-->
+<div class="partner_print">
+    <span>#8798787</span>
+    <br>
+    <img style="width:100%;" src="./dist/img/logo.png">
+    <br>
+   <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <span style="padding-right: 10px;">1396/10/30</span><span style="padding-left: 10px;">23:52:30</span>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <span>خدمت : </span><span id="pservice"></span>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <span>همکار : </span><span id="ppartner"></span>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <div style="width: 100%;background: gray !important;"><span>پرداخت نقدی : </span><span id="ppayment"></span><span> تومان </span></div>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <div id="qrcode" style="text-align: center;"></div>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <span>.</span></span>
+</div>
+
+
+<!-- Print Section : Cutomer invoice Print-->
+<div class="total_print">
+    <span>#8798787</span>
+    <br>
+    <img style="width:100%;" src="./dist/img/logo.png">
+    <br>
+    <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <span style="padding-right: 10px;">1396/10/30</span><span style="padding-left: 10px;">23:52:30</span>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+
+
+    <table style="font-size: 12px;">
+        <tbody id="tp_service">
+        <tr style="background: gray !important;">
+            <th>خدمت</th>
+            <th>همکار</th>
+            <th>پرداخت</th>
+        </tr>
+        </tbody>
+    </table>
+    <hr style="border-top: 1px solid #000;margin: 10px 0 3px 0">
+    <hr style="border-top: 1px solid #000;margin: 2px 0 3px 0">
+    <table style="font-size: 12px;">
+        <tbody>
+        <tr>
+            <td style="background: gray !important;">
+                مجموع فاکتور
+            </td>
+             <td>
+                 120000
+            </td>
+        </tr>
+          <tr>
+            <td style="background: gray !important;">
+                اعتبار اختصاصی استفاده شده
+            </td>
+             <td>
+                 30000
+            </td>
+        </tr>
+          <tr>
+            <td style="background: gray !important;">
+                اعتبار عمومی استفاده شده
+            </td>
+             <td>
+                 10000
+            </td>
+        </tr>
+          <tr>
+            <td style="background: gray !important;">
+                بیعانه
+            </td>
+             <td>
+                 40000
+            </td>
+        </tr>
+          <tr>
+            <td style="background: gray !important;">
+                مبلغ پرداختی
+            </td>
+             <td>
+                 50000
+            </td>
+        </tr>
+          <tr>
+            <td style="background: gray !important;">
+                مجموع اعتبار کسب شده
+            </td>
+             <td>
+                 9000
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <div id="qrcode" style="text-align: center;"></div>
+    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
+    <span>تمام</span></span>
+</div>
+
+
+
+
+
+
 
 <!-- Main Footer -->
 <?php include_once 'footer.php'; ?>
