@@ -72,7 +72,7 @@ include_once 'config.php';
                             <div class="col-md-4 form-group">
                                 <label style="float: right;">نحوه آشنایی</label>
 
-                                <select id="introduction" class="form-control" name="introduction" tabindex="5">
+                                <select id="introduction" class="form-control" style="padding-top: 1px;" name="introduction" tabindex="5">
                                     <option disabled selected>انتخاب نحوه آشنایی</option>
                                     <option value="referral">معرف</option>
                                     <option name="تلگرام">تلگرام</option>
