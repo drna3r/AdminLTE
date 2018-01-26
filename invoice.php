@@ -80,7 +80,7 @@ $conn->close();
 
                 <div class="box-body">
 
-                    <div style="float:right;width:60%;">
+                    <div style="float:right;width:100%;">
                         <table>
                             <tbody>
                             <tr>
@@ -89,6 +89,7 @@ $conn->close();
                                 <th>جمع کل خدمات</ht>
                                 <th>اعتبار استفاده شده</ht>
                                 <th>جمع کل پرداخت</ht>
+                                 <th>ثبت فاکتور</ht>
                             </tr>
                             <tr>
                                 <td><span class="credit_pub">0</span> (استفاده :<input id="use_credit_pub" type="checkbox">) </td>
@@ -96,6 +97,7 @@ $conn->close();
                                 <td class="total_services">0</td>
                                 <td class="credt_payment">0</td>
                                 <td class="total">0</td>
+                                <td><button>ثبت فاکتور</button></td>
                             </tr>
                             </tbody>
                         </table>
