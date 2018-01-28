@@ -356,6 +356,57 @@ switch ($pagename) { case "new-customer.php": ?>
         });
 
 
+        $("#submit").click(function(){
+            if($(".total_services").text() > 0){
+
+                var t_services = $(".total_services").text();
+                var t_payment = $(".total").text();
+                var diposit_use = deposit - $(".deposit").text();
+                var pcredit_use = credit_pub - $(".credit_pub").text();
+                var partner_credit_use = $(".credt_payment").text() - pcredit_use;
+
+                var all_s_name = '';
+                var all_s_partner = '';
+                var all_s_price = '';
+                var all_s_credit_partner = '';
+                var all_s_credit_cbox = '';
+                var all_s_credit_use = '';
+                var all_s_payment = '';
+
+                $(".service_row").each(function() {
+
+                    all_s_name += $(this).find('td:nth-child(1)').text() + ',';
+                    all_s_partner += $(this).find('td:nth-child(2)').text() + ',';
+                    all_s_price += $(this).find('td:nth-child(3)').text() + ',';
+                //   all_s_credit_partner += $(this).find('td:nth-child(4)').text() + ',';
+                //  all_s_credit_cbox += $(this).find('td:nth-child(5)').text() + ',';
+                    all_s_credit_use += $(this).find('td:nth-child(6)').text() + ',';
+                    all_s_payment += $(this).find('td:nth-child(7)').text() + ',';
+                });
+
+                console.log('/?' +
+                    'cid=' + cid +
+                    '&t_services=' + t_services +
+                    '&partner_credit_use=' + partner_credit_use +
+                    '&t_payment=' + t_payment +
+                    '&diposit_use=' + diposit_use +
+                    '&pcredit_use=' + pcredit_use +
+                    '&allsname=' + all_s_name.replace(/^,|,$/g,'') +
+                    '&allspartner=' + all_s_partner.replace(/^,|,$/g,'') +
+                    '&allsprice=' + all_s_price.replace(/^,|,$/g,'') +
+                //  '&allscreditpartner=' + all_s_credit_partner.replace(/^,|,$/g,'') +
+                //  '&allscreditcbox=' + all_s_credit_cbox.replace(/^,|,$/g,'') +
+                    '&allscredituse=' + all_s_credit_use.replace(/^,|,$/g,'') +
+                    '&allspayment=' + all_s_payment.replace(/^,|,$/g,'')
+                );
+
+            }else{
+                $('#modal-danger').modal();
+            }
+        });
+
+
+
         //Calculate Total Service Value
         function totalservices(){
             $(".total_services").text(Number($(".total").text()) + Number($(".credt_payment").text()));
