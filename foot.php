@@ -334,11 +334,28 @@ switch ($pagename) { case "new-customer.php": ?>
 
             });
 
-            //Print Row
+            //Partner Print Invoice Button / Add Row To Partner Print Invoice
             $("table").on("click", ".print", function(){
                 $("#pservice").text($(this).attr('pservice'));
                 $("#ppartner").text($(this).attr('ppartner'));
                 $("#ppayment").text($(this).attr('ppayment'));
+                $(".date_time").text(new persianDate().format());
+                $(".partner_print").addClass("section-to-print");
+                $(".total_print").removeClass("section-to-print");
+                window.print();
+            });
+
+
+            //Total Print Invoice /
+            $(".total_print_submit").click(function() {
+
+                $("#tptotal").text($(".total_services").text());
+                $("#tpcredit_use").text($(".credt_payment").text());
+                //$("#tpdeposit").text($(".deposit").text());
+                $("#tppayment").text($(".total").text());
+                $(".date_time").text(new persianDate().format());
+                $(".total_print").addClass("section-to-print");
+                $(".partner_print").removeClass("section-to-print");
                 window.print();
             });
 
