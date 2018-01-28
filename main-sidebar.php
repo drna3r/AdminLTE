@@ -5,48 +5,25 @@
     <section class="sidebar">
 
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel">
-            <div class="pull-right image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <div class="user-panel" style="text-align: center;">
+            <span style="color: #fff;">سالن زیبایی</span>
+            <span style="color: #fff;">سیمای فرح</span>
             </div>
-            <div class="pull-left info">
-                <p>Alexander Pierce</p>
-                <!-- Status -->
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
-
-        <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-            </div>
-        </form>
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">منو اصلی</li>
             <!-- Optionally, you can add icons to the links -->
-            <li><a href="./new-customer.php"><i class="fa fa-circle-o text-red"></i> <span>مشتری جدید</span></a></li>
-            <li><a href="./customer-list.php"><i class="fa fa-circle-o text-red"></i> <span>لیست مشتریان</span></a></li>
-            <li class="active"><a href="./admin-panel.php"><i class="fa fa-link"></i> <span>پنل مدیریت</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
-                </ul>
-            </li>
+            <li><a href="./new-customer.php"><i class="fa fa-id-card"></i> <span>مشتری جدید</span></a></li>
+            <li><a href="./customer-list.php"><i class="fa fa-user-circle "></i> <span>لیست مشتریان</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-bar-chart"></i> <span>گزارش فروش</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-calendar-check-o"></i> <span>رزرواسیون</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-commenting"></i> <span>پیگیری</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-cogs"></i> <span>کنترل پنل</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-users"></i> <span>گروه</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-list-ol"></i> <span>اعتبارات</span></a></li>
+            <li><a href="./admin-panel.php"><i class="fa fa-money"></i> <span>فروش روز</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
