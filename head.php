@@ -130,13 +130,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 text-align:right;
             }
 
-            .section-to-print{
+            .partner_print, .total_print{
                 direction: rtl;
                 text-align: center;
                 position: absolute;
                 width: 4.8cm;
-                left: 500px;
-                top: 0px;
+                left: 0px;
+                top: -1000px;
+                background: #fff;
             }
 
             table {
