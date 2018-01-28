@@ -108,23 +108,55 @@ switch ($pagename) { case "new-customer.php": ?>
         })
     </script>
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <?php break; case "define-service.php": ?>
+    <!---------------------------------------- define-service.php ----------------------------------------------------------------------->
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                var name = $("#name").val();
+                var price = $("#price").val();
+                var credit_in_first_use = $("#credit_in_first_use").val();
+                var period_use = $("#period_use").val();
+                    var pu_1 = $("#pu_1").val();
+                    var pu_2 = $("#pu_2").val();
+                    var pu_3 = $("#pu_3").val();
+                    var pu_4 = $("#pu_4").val();
+                    var pu_5 = $("#pu_5").val();
+                var pu_t = pu_1 +"," + pu_2 +","+ pu_3 +","+ pu_4 +","+ pu_5 ;
+                $.ajax({url: "ajax-db.php?"+
+                    "form=addservice" +
+                    "&name=" + name +
+                    "&price=" + price +
+                    "&credit_in_first_use=" + credit_in_first_use +
+                    "&period_use=" + period_use +
+                    "&pu_t=" + pu_t +
+                    "", success: function(result){
+
+                        $("#showr").text(result);
+
+                        //Reset Value Of Inputs
+                        $("#name").val('');
+                        $("#price").val('');
+                        $("#credit_in_first_use").val('');
+                        $("#period_use").val('');
+                        $("#pu_1").val('');
+                        $("#pu_2").val('');
+                        $("#pu_3").val('');
+                        $("#pu_4").val('');
+                        $("#pu_5").val('');
+                        $("#showr").fadeIn(5000);
+                        $("#showr").fadeOut(5000);
+
+                    }});
+            });
+        });
+    </script>
     <?php break; case "invoice.php": ?>
     <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
     <script src="plugins/jquery-qrcode/jquery.qrcode.min.js"></script>
+    <script src="bower_components/persian-date/dist/persian-date.js" type="text/javascript"></script>
     <script>
         $(document).ready(function() {
-
-            //Limit Of usable Credit / Set in Admin Panel
-            var percent = 25;
-
-            //Value Of Customer's Deposit / Set In Customer Page
-            var deposit = 20000;
-
-            //Value Of Credit Public in DataBase
-            var credit_pub = 10000;
-
-            //Value Of Customer Credit for Each Partner
-            var partners_c = {1:3500, 2:9000, 3:4000};
 
             //Value Of Total "Payment"
             var payment = 0;
@@ -243,7 +275,7 @@ switch ($pagename) { case "new-customer.php": ?>
                     row_id ++;
 
                     //Generate Html tr / td Table row For new Service Row.
-                    $("#services_list").append("<tr id='row" + row_id + "'>" +
+                    $("#services_list").append("<tr class='service_row' id='row" + row_id + "'>" +
                         "<td>" + newservice + "</td>" +
                         "<td>" + newpartnet + "</td>" +
                         "<td>" + newcost + "</td>" +
@@ -255,7 +287,7 @@ switch ($pagename) { case "new-customer.php": ?>
                         "<td><button class='remove' rowid='#row"+ row_id +"' pid='"+ partner_id +"'  cuse='"+ newcredituse +"'  payment='"+ newpay +"' >حذف</button></td></tr>");
 
                     //Generate Html tr / td Table row For Print Total Services.
-                    $("#tp_service").append("<tr>" +
+                    $("#tp_service").append("<tr id='row" + row_id + "p'>" +
                         "<td>" + newservice + "</td>" +
                         "<td>" + newpartnet + "</td>" +
                         "<td>" + newpay + "</td></tr>");
@@ -291,6 +323,10 @@ switch ($pagename) { case "new-customer.php": ?>
                 payment -= Number($(this).attr('payment'));
                 credt_pay -= Number($(this).attr('cuse'));
 
+                console.log($($(this).attr('rowid')));
+                //Remove Row From Invoice Print
+                var rm_print_row = $(this).attr('rowid') + 'p';
+                $(rm_print_row).remove();
                 //Revert Credit Of Customer For Partnet
                 partners_c[$(this).attr('pid')] += Number($(this).attr('cuse'));
                 totalservices();
@@ -336,12 +372,12 @@ switch ($pagename) { case "new-customer.php": ?>
             //Calculate Deposit in Payment
             $("#use_deposit").click(function() {
                 if ($('#use_deposit').is(':checked')) {
-                    if (deposit <= payment) {
-                        $(".total").text(payment - deposit);
+                    if (deposit <= $(".total").text()) {
+                        $(".total").text($(".total").text() - deposit);
                         $(".deposit").text('0');
                     } else {
                         $(".total").text('0');
-                        $(".deposit").text(deposit - payment);
+                        $(".deposit").text(deposit - $(".total").text());
                     }
                     $("#use_credit_pub").attr("disabled", true);
                     $("#add").prop('disabled', true);
