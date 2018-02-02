@@ -498,7 +498,9 @@ switch ($pagename) { case "new-customer.php": ?>
                     reset_value();
 
                     //Reduce Credit Of Customer For Partnet
-                    partners_c[partner_id] -= credituse;
+                    if (c_check) {
+                        partners_c[partner_id] -= credituse;
+                    }
 
                     //Sum With Total and Credit
                     payment += Number(newpay);
