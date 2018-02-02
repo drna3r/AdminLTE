@@ -144,6 +144,42 @@ switch ($pagename) { case "new-customer.php": ?>
         })
     </script>
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <?php break; case "sale-report-invoice.php": ?>
+    <!---------------------------------------- sale-report-invoice.php ----------------------------------------------------------------------->
+
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="bower_components/jszip/dist/jszip.min.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                "stateSave" : true,
+                "bLengthChange": false,
+                "bInfo": false,
+                "oLanguage": {
+                    "sSearch": "جستجوی مشتریان ",
+                    "oPaginate": {
+                        "sNext": "صفحه بعد",
+                        "sPrevious": "صفحه قبل"
+                    },
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    { extend: 'print', text: 'پرینت' },
+                    { extend: 'print', text: 'کپی' },
+                    { extend: 'excel', text: 'خروجی اکسل' },
+                    { extend: 'colvis', text: 'انتخاب ستون ها', columns: ':gt(1)'}
+                ]
+            })
+        })
+    </script>
+    <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <?php break; case "define-service.php": ?>
     <!---------------------------------------- define-service.php ----------------------------------------------------------------------->
     <script>
