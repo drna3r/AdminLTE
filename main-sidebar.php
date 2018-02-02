@@ -32,7 +32,19 @@
             </li>
             <li><a href="./admin-panel.php"><i class="fa fa-calendar-check-o"></i> <span>رزرواسیون</span></a></li>
             <li><a href="./admin-panel.php"><i class="fa fa-commenting"></i> <span>پیگیری</span></a></li>
-            <li><a href="./admin-panel.php"><i class="fa fa-cogs"></i> <span>کنترل پنل</span></a></li>
+            <li class="treeview menu-open">
+                <a href="#">
+                    <i class="fa fa-bar-chart"></i>
+                    <span>پنل مدیریت</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu" style="display: block;">
+                    <li><a href="./define-service.php"><i class="fa fa-circle-o"></i>خدمات</a></li>
+                    <li><a href="./define-partner.php"><i class="fa fa-circle-o"></i>همکاران</a></li>
+                </ul>
+            </li>
             <li><a href="./admin-panel.php"><i class="fa fa-users"></i> <span>گروه</span></a></li>
             <li><a href="./admin-panel.php"><i class="fa fa-list-ol"></i> <span>اعتبارات</span></a></li>
             <li><a href="./admin-panel.php"><i class="fa fa-money"></i> <span>فروش روز</span></a></li>
