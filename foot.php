@@ -641,9 +641,10 @@ switch ($pagename) { case "new-customer.php": ?>
                     all_s_payment += $(this).find('td:nth-child(7)').text() + ',';
                 });
 
-                console.log('/?' +
+                var submit_url = './invoice-submit.php/?' +
                     'cid=' + cid +
                     '&t_services=' + t_services +
+                    '&inv_id=' + invoice_id +
                     '&partner_credit_use=' + partner_credit_use +
                     '&t_payment=' + t_payment +
                     '&diposit_use=' + diposit_use +
@@ -655,8 +656,9 @@ switch ($pagename) { case "new-customer.php": ?>
                 //  '&allscreditcbox=' + all_s_credit_cbox.replace(/^,|,$/g,'') +
                     '&allscredituse=' + all_s_credit_use.replace(/^,|,$/g,'') +
                     '&allspayment=' + all_s_payment.replace(/^,|,$/g,'')
-                );
+                ;
 
+                window.open(submit_url, '_blank');
             }else{
                 $('#modal-danger').modal();
             }
