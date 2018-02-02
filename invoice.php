@@ -21,15 +21,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT firstname, lastname FROM customer_list WHERE id=$cid";
-$result = $conn->query($sql);
+$sql = "SELECT firstname, lastname, deposit, credit_public FROM customer_list WHERE id=$cid";
+$customer_list = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($customer_list->num_rows > 0) {
     // output data of each row
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $customer_list->fetch_assoc()) {
 
         $firstname = $row["firstname"];
         $lastname = $row["lastname"];
+        $deposit = $row["deposit"];
+        $credit_public = $row["credit_public"];
     }
 } else {
     echo "0 results";
