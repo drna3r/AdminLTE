@@ -83,6 +83,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- DataTables -->
         <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
         <link rel="stylesheet" href="bower_components/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
+    <?php break; case "sale-report-service.php": ?>
+        <!---------------------------------------- sale-report-service.php ----------------------------------------------------------------------->
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
     <?php break; case "admin-panel.php": ?>
         <!---------------------------------------- admin-panel.php ----------------------------------------------------------------------->
         <style>
