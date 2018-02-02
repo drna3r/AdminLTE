@@ -128,10 +128,37 @@ $conn->close();
                             <th>
                                 <select class="service">
                                     <option value="" disabled selected>انتخاب خدمت</option>
-                                    <option cost="20000" >رنگ کردن مو</option>
-                                    <option cost="50000" >کوتاه کردن مو</option>
-                                    <option cost="10000" >لاک زدن</option>
-                                    <option cost="20000" >سشوار کشیدن</option>
+
+
+
+                                    <?php
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                    //Set Charset UTF-8
+                                    $conn->set_charset("utf8");
+
+                                    // Check connection
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+
+                                    $sql_services = "SELECT id, name, price, credit_in_first_use, period_use, pu_t FROM services_list";
+                                    $services = $conn->query($sql_services);
+
+                                    if ($services->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $services->fetch_assoc()) {
+                                            ?>
+                                            <option id="<?php echo $row['id']; ?>" fpercent="<?php echo $row['credit_in_first_use']; ?>" cost="<?php echo $row['price']; ?>" ><?php echo $row['name']; ?></option>
+                                            <?php
+                                        }
+                                    } else {
+                                        echo "0 results";
+                                    }
+
+                                    $conn->close();
+
+                                    ?>
                                 </select>
                             </th>
                             <th>
