@@ -155,8 +155,14 @@ switch ($pagename) { case "new-customer.php": ?>
     <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
     <script src="plugins/jquery-qrcode/jquery.qrcode.min.js"></script>
     <script src="bower_components/persian-date/dist/persian-date.js" type="text/javascript"></script>
+    <!-- Select2 -->
+    <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
     <script>
         $(document).ready(function() {
+
+            //Select2 For Some Element
+            $('.service').select2();
+            $('.partner').select2();
 
             //Value Of Total "Payment"
             var payment = 0;
