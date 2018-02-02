@@ -232,7 +232,6 @@ $conn->close();
 
 <!-- Print Section : Partner invoice Print-->
 <div class="partner_print">
-    <span>#8798787</span>
     <span>سالن زیبایی رخسازه</span>
     <br>
     <span>#<?php echo $invoice_id; ?></span>
@@ -255,7 +254,6 @@ $conn->close();
 
 <!-- Print Section : Cutomer invoice Print-->
 <div class="total_print">
-    <span>#8798787</span>
     <span>سالن زیبایی رخسازه</span>
     <br>
     <span>#<?php echo $invoice_id; ?></span>
