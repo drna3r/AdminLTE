@@ -236,12 +236,15 @@ $conn->close();
 <!-- Print Section : Cutomer invoice Print-->
 <div class="total_print">
     <span>#8798787</span>
+    <span>سالن زیبایی رخسازه</span>
+    <br>
+    <span>#<?php echo $invoice_id; ?></span>
     <br>
     <img style="width:100%;" src="./dist/img/logo.png">
     <br>
     <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
-    <span style="padding-right: 10px;">1396/10/30</span><span style="padding-left: 10px;">23:52:30</span>
+    <span class="date_time"></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
 
 
@@ -262,50 +265,36 @@ $conn->close();
             <td style="background: gray !important;">
                 مجموع فاکتور
             </td>
-             <td>
-                 120000
-            </td>
+             <td id="tptotal"></td>
         </tr>
           <tr>
             <td style="background: gray !important;">
-                اعتبار اختصاصی استفاده شده
+                اعتبار استفاده شده
             </td>
-             <td>
-                 30000
-            </td>
+             <td id="tpcredit_use"></td>
         </tr>
-          <tr>
-            <td style="background: gray !important;">
-                اعتبار عمومی استفاده شده
-            </td>
-             <td>
-                 10000
-            </td>
-        </tr>
+        <!--
           <tr>
             <td style="background: gray !important;">
                 بیعانه
             </td>
-             <td>
-                 40000
-            </td>
+             <td id="tpdeposit"></td>
         </tr>
+        -->
           <tr>
             <td style="background: gray !important;">
                 مبلغ پرداختی
             </td>
-             <td>
-                 50000
-            </td>
+             <td id="tppayment"></td>
         </tr>
+        <!--
           <tr>
             <td style="background: gray !important;">
                 مجموع اعتبار کسب شده
             </td>
-             <td>
-                 9000
-            </td>
+             <td></td>
         </tr>
+        -->
         </tbody>
     </table>
 
@@ -313,7 +302,7 @@ $conn->close();
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
     <div id="qrcode" style="text-align: center;"></div>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
-    <span>تمام</span></span>
+    <span>.</span>
 </div>
 
 
