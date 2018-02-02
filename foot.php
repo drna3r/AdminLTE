@@ -520,6 +520,10 @@ switch ($pagename) { case "new-customer.php": ?>
 
             //Remove Row - Reverse Sum and Reduce
             $("table").on("click", ".remove", function(){
+
+                //Each Service Only One time Can be Select / When Remove Enable Again
+                $(".service").find('#' + $(this).attr('sid')).prop('disabled', false);
+
                 $($(this).attr('rowid')).remove();
                 $(".total").text($(".total").text() - $(this).attr('payment'));
                 $(".credt_payment").text($(".credt_payment").text() - $(this).attr('cuse'));
