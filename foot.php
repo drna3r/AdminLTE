@@ -368,10 +368,13 @@ switch ($pagename) { case "new-customer.php": ?>
 
             //Value In Each Payment Row!
             var cost = 0;
+            var service_id = 0;
             var partner_id = 0;
             var credit = 0;
             var pay = 0;
             var credituse = 0;
+            var fpercent = 0;
+            var firstuse = false;
 
             //Reset (Empty and Set to defult) Value inpute for Add New Sevice.
             reset_value();
@@ -386,6 +389,8 @@ switch ($pagename) { case "new-customer.php": ?>
             //Get Cost From Services Attribute , Set Pay And Cost input from it
             $('.service').on('change', function() {
                 cost = $('option:selected', this).attr('cost');
+                service_id = $('option:selected', this).attr('id');
+                fpercent = $('option:selected', this).attr('fpercent');
                 $(".cost:text").val(cost);
                 $(".pay").text(cost);
 
@@ -467,12 +472,31 @@ switch ($pagename) { case "new-customer.php": ?>
                 var newcost = $(".cost").val();
                 var newcredit = $(".credit").text();
                 var newc_check = '<input type="checkbox" disabled="disabled">';
-                if ($('#c_check').is(':checked')) {newc_check = '<input type="checkbox" disabled="disabled" checked>';}
+                if ($('#c_check').is(':checked')) {
+                    newc_check = '<input type="checkbox" disabled="disabled" checked>';
+                    var c_check = true;
+                }
                 var newcredituse = $(".credituse").text();
                 var newpay = $(".pay").text();
 
 
                 if (newpartnet !== null & newservice !== null & newcost.length > 0) {
+
+                //Calculate FistUse Credit
+                var addcredit = '';
+                if( $.inArray(service_id, taken_services) != -1){
+                    addcredit = '';
+                    firstuse = false;
+                }else{
+                    if( $.inArray(service_id, taken_services_now) != -1) {
+                        addcredit = '';
+                        firstuse = false;
+                    }else{
+                        addcredit = 'اولین استفاده : +' + ((newpay * fpercent) / 100);
+                        taken_services_now.push(service_id);
+                        firstuse = true;
+                    }
+                }
 
                     row_id ++;
 
@@ -481,12 +505,12 @@ switch ($pagename) { case "new-customer.php": ?>
                         "<td>" + newservice + "</td>" +
                         "<td>" + newpartnet + "</td>" +
                         "<td>" + newcost + "</td>" +
-                        "<td>" + newcredit + "</td>" +
+                        "<td>" + newcredit + "<br><span style='font-size: 10px;'>" + addcredit + "</span></td>" +
                         "<td>" + newc_check + "</td>" +
                         "<td class='credt_pay'>" + newcredituse + "</td>" +
                         "<td class='payment'>" + newpay + "</td>" +
                         "<td><button class='print' pservice='"+ newservice +"' ppartner='"+ newpartnet +"' ppayment='"+ newpay +"'>چاپ</button>" + "</td>" +
-                        "<td><button class='remove' rowid='#row"+ row_id +"' pid='"+ partner_id +"'  cuse='"+ newcredituse +"'  payment='"+ newpay +"' >حذف</button></td></tr>");
+                        "<td><button class='remove' rowid='#row"+ row_id +"' sid='"+ service_id +"' pid='"+ partner_id +"'  cuse='"+ newcredituse +"'  firstuse='"+ firstuse +"'  payment='"+ newpay +"' >حذف</button></td></tr>");
 
                     //Generate Html tr / td Table row For Print Total Services.
                     $("#tp_service").append("<tr id='row" + row_id + "p'>" +
@@ -518,7 +542,6 @@ switch ($pagename) { case "new-customer.php": ?>
                 $(".credt_payment").text(credt_pay);
                 totalservices();
 
-
             });
 
             //Remove Row - Reverse Sum and Reduce
@@ -526,6 +549,12 @@ switch ($pagename) { case "new-customer.php": ?>
 
                 //Each Service Only One time Can be Select / When Remove Enable Again
                 $(".service").find('#' + $(this).attr('sid')).prop('disabled', false);
+
+                //Remove First Credit
+                var sid = $(this).attr('sid');
+                taken_services_now = taken_services_now.filter(function(item) {
+                    return item != sid;
+                });
 
                 $($(this).attr('rowid')).remove();
                 $(".total").text($(".total").text() - $(this).attr('payment'));
