@@ -144,6 +144,62 @@ switch ($pagename) { case "new-customer.php": ?>
         })
     </script>
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <?php break; case "customer.php": ?>
+    <!---------------------------------------- customer.php ----------------------------------------------------------------------->
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="bower_components/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="bower_components/jszip/dist/jszip.min.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                "bLengthChange": false,
+                "bInfo": false,
+                "oLanguage": {
+                    "sSearch": "جستجو",
+                    "oPaginate": {
+                        "sNext": "صفحه بعد",
+                        "sPrevious": "صفحه قبل"
+                    },
+                }
+            })
+        })
+
+        $(document).ready(function(){
+
+            $("#submit_dep").click(function(){
+                var deposit = $('#deposit').val();
+                $.ajax({url: "ajax-db.php?"+
+                    "form=update_deposit" +
+                    "&cid=" + cid +
+                    "&deposit=" + deposit +
+                    "", success: function(result){
+                        $("#showr").text(result);
+                        $("#showr").fadeIn(2000);
+                        $("#showr").fadeOut(2000);
+                    }});
+            });
+
+             $("#submit_pubcredit").click(function(){
+                var pub_credit = $('#pub_credit').val();
+                $.ajax({url: "ajax-db.php?"+
+                    "form=update_pubcredit" +
+                    "&cid=" + cid +
+                    "&pubcredit=" + pub_credit +
+                    "", success: function(result){
+                        $("#showr").text(result);
+                        $("#showr").fadeIn(2000);
+                        $("#showr").fadeOut(2000);
+                    }});
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <?php break; case "sale-report-invoice.php": ?>
     <!---------------------------------------- sale-report-invoice.php ----------------------------------------------------------------------->
 

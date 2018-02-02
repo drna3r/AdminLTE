@@ -78,7 +78,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 background: transparent !important;
             }
         </style>
-    <?php break; case "customer-list.php": ?>
+    <?php break; case "customer.php": ?>
+        <!---------------------------------------- customer.php ----------------------------------------------------------------------->
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
+     <?php break; case "customer-list.php": ?>
         <!---------------------------------------- customer-list.php ----------------------------------------------------------------------->
         <!-- DataTables -->
         <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
