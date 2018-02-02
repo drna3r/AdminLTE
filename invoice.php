@@ -320,7 +320,31 @@ $conn->close();
 
 
 
+<script>
 
+    //Customer Id
+    var cid = <?php echo $cid; ?>;
+
+    //Current Invoice ID / Lastinvoice ID + 1
+    var invoice_id = <?php echo $invoice_id; ?>;
+
+    //Limit Of usable Credit / Set in Admin Panel
+    var percent = 25;
+
+    //Value Of Customer's Deposit / Set In Customer Page
+    var deposit = <?php echo $deposit; ?>;
+
+    //Value Of Credit Public in DataBase
+    var credit_pub = <?php echo $credit_public; ?>;
+
+    //Value Of Customer Credit for Each Partner
+    var partners_c = {1:3500, 2:9000, 3:4000};
+
+    //Services that customer taked it (in the past)
+    var taken_services = ['2','3'];
+    var taken_services_now = [];
+
+</script>
 
 <!-- Main Footer -->
 <?php include_once 'footer.php'; ?>
