@@ -214,12 +214,15 @@ $conn->close();
 <!-- Print Section : Partner invoice Print-->
 <div class="partner_print">
     <span>#8798787</span>
+    <span>سالن زیبایی رخسازه</span>
+    <br>
+    <span>#<?php echo $invoice_id; ?></span>
     <br>
     <img style="width:100%;" src="./dist/img/logo.png">
     <br>
    <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
-    <span style="padding-right: 10px;">1396/10/30</span><span style="padding-left: 10px;">23:52:30</span>
+    <span class="date_time"></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
     <span>خدمت : </span><span id="pservice"></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
