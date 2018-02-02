@@ -249,9 +249,7 @@ $conn->close();
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
     <div style="width: 100%;background: gray !important;"><span>پرداخت نقدی : </span><span id="ppayment"></span><span> تومان </span></div>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
-    <div id="qrcode" style="text-align: center;"></div>
-    <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
-    <span>.</span></span>
+    <span>.</span>
 </div>
 
 
