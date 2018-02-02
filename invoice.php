@@ -35,6 +35,21 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
+$sql = "SELECT * FROM invoice_list WHERE id = (SELECT MAX(ID) FROM invoice_list)";
+$invoice_list = $conn->query($sql);
+
+if ($invoice_list->num_rows > 0) {
+    // output data of each row
+    while ($row = $invoice_list->fetch_assoc()) {
+
+        //Current Invoice ID : Last Invoice Id + 1 .
+        $invoice_id = $row['id'] + 1;
+    }
+} else {
+    echo "0 results";
+}
+
+
 $conn->close();
 ?>
 
