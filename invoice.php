@@ -6,6 +6,10 @@ $cid = $_GET["id"];
 
 //Include Config.php
 include_once 'config.php';
+
+//Include jdf.php - Jalali Date Library Alternative Date() Function In Php
+include_once './plugins/jdate/jdf.php';
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
