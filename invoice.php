@@ -103,12 +103,13 @@ $conn->close();
                         <table>
                             <tbody>
                             <tr>
-                                <th>اعتبار عمومی</ht>
-                                <th>مبلغ بیعانه</ht>
-                                <th>جمع کل خدمات</ht>
-                                <th>اعتبار استفاده شده</ht>
-                                <th>جمع کل پرداخت</ht>
-                                 <th>ثبت فاکتور</ht>
+                                <th>اعتبار عمومی</th>
+                                <th>مبلغ بیعانه</th>
+                                <th>جمع کل خدمات</th>
+                                <th>اعتبار استفاده شده</th>
+                                <th>جمع کل پرداخت</th>
+                                 <th>چاپ فاکتور</th>
+                                 <th>ثبت فاکتور</th>
                             </tr>
                             <tr>
                                 <td><span class="credit_pub">0</span> (استفاده :<input id="use_credit_pub" type="checkbox">) </td>
@@ -116,7 +117,8 @@ $conn->close();
                                 <td class="total_services">0</td>
                                 <td class="credt_payment">0</td>
                                 <td class="total">0</td>
-                                <td><button>ثبت فاکتور</button></td>
+                                <td><button class="total_print_submit">چاپ فاکتور</button></td>
+                                <td><button id="submit">ثبت فاکتور</button></td>
                             </tr>
                             </tbody>
                         </table>
