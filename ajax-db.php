@@ -3,6 +3,39 @@ include_once 'config.php';
 $form = $_GET["form"];
 
 switch ($form) {
+
+    /*--------------------------------------------- Form : addservice ---------------------------------------------*/
+    case "addservice":
+
+        $name = $_GET["name"];
+        $price = $_GET["price"];
+        $credit_in_first_use = $_GET["credit_in_first_use"];
+        $period_use = $_GET["period_use"];
+        $pu_t = $_GET["pu_t"];
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        //Set Charset UTF-8
+        $conn->set_charset("utf8");
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "INSERT INTO services_list (name, price, credit_in_first_use, period_use, pu_t)
+VALUES ('$name', '$price', '$credit_in_first_use', '$period_use', '$pu_t')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "خدمت جدید اضافه شد!";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+        break;
+
+
     /*--------------------------------------------- Form : addpartner ---------------------------------------------*/
     case "addpartner":
 

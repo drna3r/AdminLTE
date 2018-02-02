@@ -260,6 +260,19 @@ switch ($pagename) { case "new-customer.php": ?>
                     "&pu_t=" + pu_t +
                     "", success: function(result){
 
+                    $('tbody').append('<tr>' +
+                             '<td>'+ name +'</td>' +
+                             '<td>'+ price +'</td>' +
+                             '<td>'+ credit_in_first_use +'</td>' +
+                             '<td>'+ period_use +'</td>' +
+                             '<td>'+ pu_1 +'</td>' +
+                             '<td>'+ pu_2 +'</td>' +
+                             '<td>'+ pu_3 +'</td>' +
+                             '<td>'+ pu_4 +'</td>' +
+                             '<td>'+ pu_5 +'</td>' +
+                        '</tr>'
+                    );
+
                         $("#showr").text(result);
 
                         //Reset Value Of Inputs
