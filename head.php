@@ -106,6 +106,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 direction: rtl;
             }
         </style>
+        <?php break; case "define-partner.php": ?>
+        <!---------------------------------------- define-partner.php ----------------------------------------------------------------------->
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+        <!-- persian-datepicker -->
+        <link rel="stylesheet" href="bower_components/persian-datepicker/dist/css/persian-datepicker.css"/>
+
+            <style>
+            /*Persian datePicker Font*/
+            .datepicker-plot-area{
+                font: 12px IRAN-Sans,Tahoma;
+            }
+            </style>
     <?php break; case "invoice.php": ?>
         <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
         <!-- Select2 -->

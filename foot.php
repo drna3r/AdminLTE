@@ -279,6 +279,61 @@ switch ($pagename) { case "new-customer.php": ?>
             });
         });
     </script>
+    <?php break; case "define-partner.php": ?>
+    <!---------------------------------------- define-partner.php ----------------------------------------------------------------------->
+    <!-- persian-datepicker -->
+    <script src="bower_components/persian-date/dist/persian-date.js"></script>
+    <script src="bower_components/persian-datepicker/dist/js/persian-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            //Persian Date Picker Lunch For BirthDay Test Input
+            $(".pdpicker").pDatepicker({
+                observer: true,
+                format: 'YYYY/MM/DD',
+                altField: '.observer-example-alt',
+                toolbox:{
+                    "enabled": false,
+                }
+            });
+
+
+            $("#submit").click(function(){
+                var name = $("#name").val();
+                var mobile = $("#mobile").val();
+                var start_coop = $("#start_coop").val();
+                var percent_coop = $("#percent_coop").val();
+
+                $.ajax({url: "ajax-db.php?"+
+                    "form=addpartner" +
+                    "&name=" + name +
+                    "&mobile=" + mobile +
+                    "&start_coop=" + start_coop +
+                    "&percent_coop=" + percent_coop +
+                    "", success: function(result){
+
+                    $('tbody').append('<tr>' +
+                             '<td>'+ name +'</td>' +
+                             '<td>'+ mobile +'</td>' +
+                             '<td>'+ start_coop +'</td>' +
+                             '<td>'+ percent_coop +'</td>' +
+                        '</tr>'
+                    );
+
+                        $("#showr").text(result);
+
+                        //Reset Value Of Inputs
+                        $("#name").val('');
+                        $("#mobile").val('');
+                        $("#start_coop").val('');
+                        $("#percent_coop").val('');
+                        $("#showr").fadeIn(5000);
+                        $("#showr").fadeOut(5000);
+
+                    }});
+            });
+        });
+    </script>
     <?php break; case "invoice.php": ?>
     <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
     <script src="plugins/jquery-qrcode/jquery.qrcode.min.js"></script>
