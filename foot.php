@@ -506,6 +506,9 @@ switch ($pagename) { case "new-customer.php": ?>
                     payment += Number(newpay);
                     credt_pay += Number(newcredituse);
 
+                    //Each Service Only One time Can be Select
+                    $(".service").find('#' + service_id).prop('disabled', true);
+
                 }else{
                     $('#modal-danger').modal();
                 }
