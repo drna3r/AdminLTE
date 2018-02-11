@@ -6,8 +6,7 @@
 
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel" style="text-align: center;">
-            <span style="color: #fff;">سالن زیبایی</span>
-            <span style="color: #fff;">سیمای فرح</span>
+            <span style="color: #fff;"><?php echo $project_name; ?></span>
             </div>
         <!-- /.search form -->
 
