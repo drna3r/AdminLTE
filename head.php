@@ -1,4 +1,7 @@
 <?php
+//Include Config.php
+include_once 'config.php';
+
 $pagename = basename(strtok($_SERVER['REQUEST_URI'], '?'));
 
 ?>
@@ -119,7 +122,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 font: 12px IRAN-Sans,Tahoma;
             }
             </style>
-    <?php break; case "invoice.php": ?>
+    <?php break; case "invoice.php":
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        //Set Charset UTF-8
+        $conn->set_charset("utf8");
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $projectinfo = "SELECT * FROM projectinfo";
+        $projectinfo = $conn->query($projectinfo);
+        $projectinfo = $projectinfo->fetch_all();
+        $project_printwidth = $projectinfo[3][2];
+
+        $conn->close();
+        ?>
         <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
         <!-- Select2 -->
         <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
@@ -145,7 +166,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     direction: rtl;
                     text-align: center;
                     position: absolute;
-                    width: 4.8cm;
+                    width: <?php echo $project_printwidth; ?>cm;
                     left: 0;
                     top: 0 !important;
                 }
@@ -164,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 direction: rtl;
                 text-align: center;
                 position: absolute;
-                width: 4.8cm;
+                width: <?php echo $project_printwidth; ?>cm;
                 left: 0px;
                 top: -1000px;
                 background: #fff;
