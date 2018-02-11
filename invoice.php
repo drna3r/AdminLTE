@@ -52,6 +52,15 @@ if ($invoice_list->num_rows > 0) {
 }
 
 
+
+$projectinfo = "SELECT * FROM projectinfo";
+$projectinfo = $conn->query($projectinfo);
+$projectinfo = $projectinfo->fetch_all();
+$project_name = $projectinfo[0][2];
+$project_logo = $projectinfo[2][2];
+
+
+
 $conn->close();
 ?>
 
@@ -232,11 +241,11 @@ $conn->close();
 
 <!-- Print Section : Partner invoice Print-->
 <div class="partner_print">
-    <span>سالن زیبایی رخسازه</span>
+    <span><?php echo $project_name; ?></span>
     <br>
     <span>#<?php echo $invoice_id; ?></span>
     <br>
-    <img style="width:100%;" src="./dist/img/logo.png">
+    <img style="width:100%;" src="./dist/img/logo/<?php echo $project_logo; ?>">
     <br>
    <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
@@ -254,11 +263,11 @@ $conn->close();
 
 <!-- Print Section : Cutomer invoice Print-->
 <div class="total_print">
-    <span>سالن زیبایی رخسازه</span>
+    <span><?php echo $project_name; ?></span>
     <br>
     <span>#<?php echo $invoice_id; ?></span>
     <br>
-    <img style="width:100%;" src="./dist/img/logo.png">
+    <img style="width:100%;" src="./dist/img/logo/<?php echo $project_logo; ?>">
     <br>
     <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
