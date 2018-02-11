@@ -1,3 +1,29 @@
+<?php
+//Include Config.php
+include_once 'config.php';
+
+
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+
+                        //Set Charset UTF-8
+                        $conn->set_charset("utf8");
+
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $projectinfo = "SELECT * FROM projectinfo";
+                        $projectinfo = $conn->query($projectinfo);
+                        $projectinfo = $projectinfo->fetch_all();
+                        $project_name = $projectinfo[0][2];
+                        $project_logo = $projectinfo[2][2];
+
+                        $conn->close();
+
+                        ?>
+
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
