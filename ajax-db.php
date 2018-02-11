@@ -36,6 +36,39 @@ VALUES ('$name', '$price', '$credit_in_first_use', '$period_use', '$pu_t')";
         break;
 
 
+    /*--------------------------------------------- Form : update_service ---------------------------------------------*/
+    case "update_service":
+
+        $s_id = $_GET["s_id"];
+        $name = $_GET["name"];
+        $price = $_GET["price"];
+        $credit_in_first_use = $_GET["credit_in_first_use"];
+        $period_use = $_GET["period_use"];
+        $pu_t = $_GET["pu_t"];
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        //Set Charset UTF-8
+        $conn->set_charset("utf8");
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "UPDATE services_list (name, price, credit_in_first_use, period_use, pu_t)
+VALUES ('$name', '$price', '$credit_in_first_use', '$period_use', '$pu_t')";
+
+        $sql = "UPDATE services_list SET name = '$name', price = '$price' , credit_in_first_use = '$credit_in_first_use' , price = '$price' WHERE id = $s_id";
+        if ($conn->query($sql) === TRUE) {
+            echo "خدمت مورد نظر ویرایش شد!";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+        break;
+
     /*--------------------------------------------- Form : addpartner ---------------------------------------------*/
     case "addpartner":
 
