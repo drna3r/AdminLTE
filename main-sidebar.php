@@ -29,8 +29,6 @@
                     <li><a href="./sale-report-invoice.php"><i class="fa fa-circle-o"></i> بر اساس فاکتور</a></li>
                 </ul>
             </li>
-            <li><a href="./admin-panel.php"><i class="fa fa-calendar-check-o"></i> <span>رزرواسیون</span></a></li>
-            <li><a href="./admin-panel.php"><i class="fa fa-commenting"></i> <span>پیگیری</span></a></li>
             <li class="treeview menu-open">
                 <a href="#">
                     <i class="fa fa-bar-chart"></i>
@@ -44,9 +42,6 @@
                     <li><a href="./define-partner.php"><i class="fa fa-circle-o"></i>همکاران</a></li>
                 </ul>
             </li>
-            <li><a href="./admin-panel.php"><i class="fa fa-users"></i> <span>گروه</span></a></li>
-            <li><a href="./admin-panel.php"><i class="fa fa-list-ol"></i> <span>اعتبارات</span></a></li>
-            <li><a href="./admin-panel.php"><i class="fa fa-money"></i> <span>فروش روز</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
