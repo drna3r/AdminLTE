@@ -44,6 +44,8 @@ include_once 'config.php';
                             <th>قیمت</th>
                             <th>اعتبار استفاده شده</th>
                             <th>مبلغ پرداختی</th>
+                            <td>رضایت مشتری</td>
+                             <td>توضیحات</td>
                             <th>تاریخ</th>
                             <th>ساعت</th>
                         </tr>
@@ -63,7 +65,7 @@ include_once 'config.php';
                             die("Connection failed: " . $conn->connect_error);
                         }
 
-                        $sql = "SELECT id, invoice_id, name, partner, price, credit_use, payment FROM invoice_service_list";
+                        $sql = "SELECT * FROM invoice_service_list";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -93,10 +95,35 @@ include_once 'config.php';
                                     <td><?php echo $row["price"]; ?></td>
                                     <td><?php echo $row["credit_use"]; ?></td>
                                     <td><?php echo $row["payment"]; ?></td>
+                                    <?php
+                                    $vs_0 = $vs_1 = $vs_2 = $vs_3 = $vs_4 = '';
+                                    switch ($row["satisfaction"]) {
+                                            case 1:$vs_1 = 'selected';break;
+                                            case 2:$vs_2 = 'selected';break;
+                                            case 3:$vs_3 = 'selected';break;
+                                            case 4:$vs_4 = 'selected';break;
+                                        default:
+                                            $vs_0 = 'selected';
+                                    }
+                                    ?>
+                                    <td>
+                                        <select class="satisfaction" s_id="<?php echo $row["id"]; ?>" autocomplete="off">
+                                            <option value="0" <?php echo $vs_0; ?> >بی پاسخ</option>
+                                            <option value="1" <?php echo $vs_1; ?> >کاملا راضی</option>
+                                            <option value="2" <?php echo $vs_2; ?> >نسبتا راضی</option>
+                                            <option value="3" <?php echo $vs_3; ?> >ناراضی</option>
+                                            <option value="4" <?php echo $vs_4; ?> >بسیار ناراضی</option>
+                                        </select>
+                                        <span id="showr<?php echo $row["id"]; ?>"></span>
+                                    </td>
+                                    <td>
+                                        <input class="desc<?php echo $row["id"]; ?>" type="text" style="max-width: 100px;" placeholder="توضیحات..." autocomplete="off">
+                                            <button class="desc-btn fa fa-arrow-left" style="width: 30%;padding-right: 4px;cursor: pointer;"></button>
+                                        <span id="showr-d<?php echo $row["id"]; ?>"></span>
+                                        </td>
                                     <td><?php echo $date; ?></td>
                                     <td><?php echo $time; ?></td>
                                 </tr>
-
                                 <?php
                             }
                         } else {
