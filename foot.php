@@ -711,7 +711,7 @@ switch ($pagename) { case "new-customer.php": ?>
                     '&allspayment=' + all_s_payment.replace(/^,|,$/g,'')
                 ;
 
-                window.open(submit_url, '_blank');
+                window.open(submit_url, '_self');
             }else{
                 $('#modal-danger').modal();
             }
