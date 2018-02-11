@@ -124,6 +124,26 @@ switch ($pagename) { case "new-customer.php": ?>
     <!-- page script -->
     <script>
 
+        $(document).ready(function(){
+
+            $('.satisfaction').on('change', function() {
+                var value = $('option:selected', this).val();
+                var s_id = $(this).attr('s_id');
+
+                $.ajax({url: "ajax-db.php?"+
+                    "form=update_satisfaction" +
+                    "&s_id=" + s_id +
+                   "&value=" + value +
+                    "", success: function(result){
+                        $("#showr" + s_id).text(result);
+                        $("#showr" + s_id).fadeIn(2000);
+                        $("#showr" + s_id).fadeOut(2000);
+                    }});
+
+            });
+        });
+
+
             $(".desc-btn").click(function(){
                 var s_id = $(this).attr('s_id');
                 var description = $('#desc' + s_id).val();
