@@ -45,10 +45,10 @@ include_once 'config.php';
 
                             </tr>
                             <tr>
-                                <td><input id="name" style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
+                                <td><input id="name" style="width: 100%;" type="text" placeholder="نام همکار"></td>
                                 <td><input id="mobile" style="width: 100%;" type="text" placeholder="09000000000"></td>
-                                <td><input id="start_coop" style="width: 100%;" class="pdpicker" type="text" placeholder="09000000000" readonly="readonly"></td>
-                                <td><input id="percent_coop" style="width: 100%;" type="text" placeholder="09000000000"></td>
+                                <td><input id="start_coop" style="width: 100%;" class="pdpicker" type="text" placeholder="تاریخ شروع همکاری" readonly="readonly"></td>
+                                <td><input id="percent_coop" style="width: 100%;" type="text" placeholder="عدد درصد"></td>
                                 <td><button id="submit" style="width: 100%;" class="btn btn-primary" style="margin: 10px;float: left">ثبت</button></td>
                             </tr>
                             <?php
