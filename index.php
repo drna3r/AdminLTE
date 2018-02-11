@@ -1,4 +1,13 @@
-<!-- <head> -->
+<?php
+//page Information :
+$page_title = 'پیشخوان';
+$page_description = 'پیشخوان';
+
+//Include Config.php
+include_once 'config.php';
+?>
+
+    <!-- <head> -->
 <?php include_once 'head.php'; ?>
 
 <!-- Main Header -->
@@ -12,7 +21,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Page Header
+            پیشخوان
         </h1>
     </section>
 
