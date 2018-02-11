@@ -247,7 +247,7 @@ $conn->close();
     <br>
     <img style="width:100%;" src="./dist/img/logo/<?php echo $project_logo; ?>">
     <br>
-   <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
+   <span><?php echo $firstname.' '.$lastname; ?></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
     <span class="date_time"></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
@@ -269,7 +269,7 @@ $conn->close();
     <br>
     <img style="width:100%;" src="./dist/img/logo/<?php echo $project_logo; ?>">
     <br>
-    <span>خانم <?php echo $firstname.' '.$lastname; ?></span>
+    <span><?php echo $firstname.' '.$lastname; ?></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
     <span class="date_time"></span>
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
