@@ -24,8 +24,6 @@ $allsprice = explode(",",$_GET["allsprice"]);
 $allscredituse = explode(",",$_GET["allscredituse"]);
 $allspayment = explode(",",$_GET["allspayment"]);
 
-var_dump($allsname);
-
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,7 +37,7 @@ if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 $sql = "INSERT INTO invoice_list (cid, date, time, pubcredit_use, deposit_use, total_service, partner_credit_use, total_payment)
 VALUES ('$cid', '$date', '$time', '$pcredit_use', '$diposit_use', '$t_services', '$partner_credit_use', '$t_payment')";
 
-if ($conn->query($sql) === TRUE) {echo "خدمت جدید اضافه شد!";} else {echo "Error: " . $sql . "<br>" . $conn->error;}
+if ($conn->query($sql) === TRUE) {} else {echo "Error: " . $sql . "<br>" . $conn->error;}
 
 $i = 0;
 foreach ($allsname as $name) {
@@ -47,13 +45,15 @@ foreach ($allsname as $name) {
 $sql = "INSERT INTO invoice_service_list (invoice_id, cid, name, partner, price, credit_use, payment)
 VALUES ('$invoice_id', '$cid', '$name', '$allspartner[$i]', '$allsprice[$i]', '$allscredituse[$i]', '$allspayment[$i]')";
 
-if ($conn->query($sql) === TRUE) {echo "خدمت جدید اضافه شد!";} else {echo "Error: " . $sql . "<br>" . $conn->error;}
+if ($conn->query($sql) === TRUE) {} else {echo "Error: " . $sql . "<br>" . $conn->error;}
 $i ++;
 }
 
 
 $sql = "UPDATE customer_list SET credit_public = credit_public - $pcredit_use, deposit = deposit - $diposit_use, visit_count = visit_count + 1, last_visit = '$date', cash = cash + $t_payment  WHERE id = $cid";
-if ($conn->query($sql) === TRUE) {echo "خدمت جدید اضافه شد!";} else {echo "Error: " . $sql . "<br>" . $conn->error;}
+if ($conn->query($sql) === TRUE) {} else {echo "Error: " . $sql . "<br>" . $conn->error;}
 
 $conn->close();
 
+
+echo "<script>window.location = '../sale-report-invoice.php';</script>";
