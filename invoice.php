@@ -300,7 +300,7 @@ $conn->close();
     <hr style="border-top: 1px solid #000;margin: 3px 0 3px 0">
 
 
-    <table style="font-size: 12px;">
+    <table style="font-size: 12px;width: 100%;">
         <tbody id="tp_service">
         <tr style="background: gray !important;">
             <th>خدمت</th>
@@ -311,7 +311,7 @@ $conn->close();
     </table>
     <hr style="border-top: 1px solid #000;margin: 10px 0 3px 0">
     <hr style="border-top: 1px solid #000;margin: 2px 0 3px 0">
-    <table style="font-size: 12px;">
+    <table style="font-size: 12px;width: 100%;">
         <tbody>
         <tr>
             <td style="background: gray !important;">
