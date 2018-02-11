@@ -192,9 +192,34 @@ $conn->close();
                             <th>
                                 <select class="partner" >
                                     <option value="" disabled selected>انتخاب همکار</option>
-                                    <option id="1" >لیلا رسولی</option>
-                                    <option id="2" >نجمه منیری</option>
-                                    <option id="3" >منا شمس</option>
+                                    <?php
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                    //Set Charset UTF-8
+                                    $conn->set_charset("utf8");
+
+                                    // Check connection
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+
+                                    $sql_partners = "SELECT * FROM partners_list";
+                                    $partners = $conn->query($sql_partners);
+
+                                    if ($partners->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $partners->fetch_assoc()) {
+                                            ?>
+                                            <option id="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                            <?php
+                                        }
+                                    } else {
+                                        echo "0 results";
+                                    }
+
+                                    $conn->close();
+
+                                    ?>
                                 </select>
                             </th>
                             <th>
