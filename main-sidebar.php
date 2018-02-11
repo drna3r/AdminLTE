@@ -66,6 +66,7 @@ include_once 'config.php';
                 <ul class="treeview-menu" style="display: block;">
                     <li><a href="./define-service.php"><i class="fa fa-circle-o"></i>خدمات</a></li>
                     <li><a href="./define-partner.php"><i class="fa fa-circle-o"></i>همکاران</a></li>
+                    <li><a href="./define-groups.php"><i class="fa fa-circle-o"></i>گروه</a></li>
                 </ul>
             </li>
         </ul>
