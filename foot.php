@@ -121,6 +121,23 @@ switch ($pagename) { case "new-customer.php": ?>
     <script src="bower_components/jszip/dist/jszip.min.js"></script>
     <!-- page script -->
     <script>
+
+            $(".desc-btn").click(function(){
+                var s_id = $(this).attr('s_id');
+                var description = $('#desc' + s_id).val();
+
+                $.ajax({url: "ajax-db.php?"+
+                    "form=update_satisfaction_description" +
+                    "&s_id=" + s_id +
+                    "&description=" + description +
+                    "", success: function(result){
+                        $("#showr-d" + s_id).text(result);
+                        $("#showr-d" + s_id).fadeIn(2000);
+                        $("#showr-d" + s_id).fadeOut(2000);
+                    }});
+            });
+
+
         $(function () {
             $('#example1').DataTable({
                 "stateSave" : true,

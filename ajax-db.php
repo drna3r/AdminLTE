@@ -186,6 +186,27 @@ VALUES ('$name', '$mobile', '$start_coop', '$percent_coop')";
         $conn->close();
         break;
 
+        /*--------------------------------------------- Form : update_satisfaction_description ---------------------------------------------*/
+    case "update_satisfaction_description":
+        $s_id = $_GET["s_id"];
+        $description = $_GET["description"];
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        //Set Charset UTF-8
+        $conn->set_charset("utf8");
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "UPDATE invoice_service_list SET description = '$description' WHERE id = $s_id";
+        if ($conn->query($sql) === TRUE) {echo " بروز شد!";} else {echo "Error: " . $sql . "<br>" . $conn->error;}
+
+        $conn->close();
+        break;
+
 
         /*-----------Defult------------*/
     default:

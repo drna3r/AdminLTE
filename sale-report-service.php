@@ -120,8 +120,8 @@ include_once 'config.php';
                                         <span id="showr<?php echo $row["id"]; ?>"></span>
                                     </td>
                                     <td>
-                                        <input class="desc<?php echo $row["id"]; ?>" type="text" style="max-width: 100px;" placeholder="توضیحات..." autocomplete="off">
-                                            <button class="desc-btn fa fa-arrow-left" style="width: 30%;padding-right: 4px;cursor: pointer;"></button>
+                                        <input id="desc<?php echo $row["id"]; ?>" type="text" style="max-width: 100px;" placeholder="توضیحات..." autocomplete="off" value="<?php echo $row["description"]; ?>">
+                                            <button class="desc-btn fa fa-arrow-left" s_id="<?php echo $row["id"]; ?>" style="width: 30%;padding-right: 4px;cursor: pointer;"></button>
                                         <span id="showr-d<?php echo $row["id"]; ?>"></span>
                                         </td>
                                     <td><?php echo $date; ?></td>
