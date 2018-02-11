@@ -37,6 +37,7 @@ include_once 'config.php';
                         <thead>
                         <tr>
                             <th> مشتری</th>
+                            <th>موبایل</th>
                             <th>شماره فاکتور</th>
                             <th>کد فروش</th>
                             <th>نام خدمت</th>
@@ -80,14 +81,16 @@ include_once 'config.php';
                                 $date = $invoice_list['date'];
                                 $time = $invoice_list['time'];
 
-                                $customer_name = "SELECT firstname, lastname FROM customer_list WHERE id = $cid";
-                                $customer_name = $conn->query($customer_name);
-                                $customer_name = $customer_name->fetch_assoc();
-                                $customer_name = $customer_name['firstname'] .' '. $customer_name['lastname'];
+                                $customer = "SELECT firstname, lastname, mobile FROM customer_list WHERE id = $cid";
+                                $customer = $conn->query($customer);
+                                $customer = $customer->fetch_assoc();
+                                $customer_name = $customer['firstname'] .' '. $customer['lastname'];
+                                $customer_mobile = $customer['mobile'];
                                 ?>
 
                                 <tr>
                                     <td><?php echo $customer_name; ?></td>
+                                    <td><?php echo $customer_mobile; ?></td>
                                     <td><?php echo $invoice_id; ?></td>
                                     <td><?php echo $row["id"]; ?></td>
                                     <td><?php echo $row["name"]; ?></td>
