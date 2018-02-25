@@ -12,6 +12,14 @@
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="login.php?exit=true">
+                        <span>خروج</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
