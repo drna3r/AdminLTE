@@ -44,31 +44,32 @@ include_once 'config.php';
                             </tr>
                             <tr>
                                 <td>گروه یک</td>
-                                <td>برنزی</td>
-                                <td>5%</td>
-                                <td>300.000 تومان</td>
+                                <td><input id="n1" style="width: 100%;" type="text" placeholder="عنوان گروه"></td>
+                                <td><input id="p1" style="width: 100%;" type="text" placeholder="عدد درصد"></td>
+                                <td><input id="u1" style="width: 100%;" type="text" placeholder="عدد به تومان"></td>
                             </tr>
                             <tr>
                                 <td>گروه دو</td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
+                                <td><input id="n2" style="width: 100%;" type="text" placeholder="عنوان گروه"></td>
+                                <td><input id="p2" style="width: 100%;" type="text" placeholder="عدد درصد"></td>
+                                <td><input id="u2" style="width: 100%;" type="text" placeholder="عدد به تومان"></td>
                             </tr>
                             <tr>
                                 <td>گروه سه</td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
+                                <td><input id="n3" style="width: 100%;" type="text" placeholder="عنوان گروه"></td>
+                                <td><input id="p3" style="width: 100%;" type="text" placeholder="عدد درصد"></td>
+                                <td><input id="u3" style="width: 100%;" type="text" placeholder="عدد به تومان"></td>
                             </tr>
                             <tr>
                                 <td>گروه چهار</td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
-                                <td><input style="width: 100%;" type="text" placeholder="عنوان خدمت"></td>
+                                <td><input id="n4" style="width: 100%;" type="text" placeholder="عنوان گروه"></td>
+                                <td><input id="p4" style="width: 100%;" type="text" placeholder="عدد درصد"></td>
+                                <td><input id="u4" style="width: 100%;" type="text" placeholder="عدد به تومان"></td>
                             </tr>
                             </tbody>
                         </table>
-                        <button class="btn btn-primary" style="margin: 10px;float: left">ثبت</button>
+                        <button id="submit" class="btn btn-primary" style="margin: 10px;float: left">ثبت</button>
+                        <span id="showr"></span>
                     </div>
                     <!-- /.box-body -->
 
