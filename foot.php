@@ -90,6 +90,7 @@ switch ($pagename) { case "new-customer.php": ?>
         $(function () {
             $('#example1').DataTable({
                 "stateSave" : true,
+                "scrollX": true,
                 "bLengthChange": false,
                 "bInfo": false,
                 "oLanguage": {
