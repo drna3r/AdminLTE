@@ -165,7 +165,7 @@ switch ($pagename) { case "new-customer.php": ?>
             $('#example1').DataTable({
                 "stateSave" : true,
                 "bLengthChange": false,
-                "bInfo": false,
+                    "sInfo": "نمایش _TOTAL_ مورد (_START_ تا _END_)",
                 "oLanguage": {
                     "sSearch": "جستجوی مشتریان ",
                     "oPaginate": {
