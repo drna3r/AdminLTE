@@ -300,18 +300,18 @@ switch ($pagename) { case "new-customer.php": ?>
                     "&pu_t=" + pu_t +
                     "", success: function(result){
 
-                    $('tbody').append('<tr>' +
-                             '<td>'+ name +'</td>' +
-                             '<td>'+ price +'</td>' +
-                             '<td>'+ credit_in_first_use +'</td>' +
-                             '<td>'+ period_use +'</td>' +
-                             '<td>'+ pu_1 +'</td>' +
-                             '<td>'+ pu_2 +'</td>' +
-                             '<td>'+ pu_3 +'</td>' +
-                             '<td>'+ pu_4 +'</td>' +
-                             '<td>'+ pu_5 +'</td>' +
-                        '</tr>'
-                    );
+                        $('tbody').append('<tr>' +
+                            '<td><input value="'+ name +'"></td>' +
+                            '<td><input style="width: 80px;" value="'+ price +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ credit_in_first_use +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ period_use +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ pu_1 +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ pu_2 +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ pu_3 +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ pu_4 +'"></td>' +
+                            '<td><input style="width: 40px;" value="'+ pu_5 +'"></td>' +
+                            '</tr>'
+                        );
 
                         $("#showr").text(result);
 
@@ -329,6 +329,64 @@ switch ($pagename) { case "new-customer.php": ?>
                         $("#showr").fadeOut(5000);
 
                     }});
+            });
+
+
+            $('.update').click(function () {
+                var s_id = $(this).attr('s_id');
+                var s_idsharp = '#' + s_id;
+                var name = $(s_idsharp).find('#name').val();
+                var price = $(s_idsharp).find('#price').val();
+                var credit_in_first_use = $(s_idsharp).find('#credit_in_first_use').val();
+                var period_use = $(s_idsharp).find('#period_use').val();
+                var pu_1 = $(s_idsharp).find("#pu_1").val();
+                var pu_2 = $(s_idsharp).find("#pu_2").val();
+                var pu_3 = $(s_idsharp).find("#pu_3").val();
+                var pu_4 = $(s_idsharp).find("#pu_4").val();
+                var pu_5 = $(s_idsharp).find("#pu_5").val();
+                var pu_t = pu_1 +"," + pu_2 +","+ pu_3 +","+ pu_4 +","+ pu_5 ;
+
+                $.ajax({
+                    url: "ajax-db.php?" +
+                    "form=update_service" +
+                    "&s_id=" + s_id +
+                    "&name=" + name +
+                    "&price=" + price +
+                    "&credit_in_first_use=" + credit_in_first_use +
+                    "&period_use=" + period_use +
+                    "&pu_t=" + pu_t +
+                    "", success: function (result) {
+                        $("#showr").text(result);
+                        $("#showr").fadeIn(1000);
+                        $("#showr").fadeOut(1000);
+                    }
+                });
+            });
+
+            $('.remove').click(function () {
+                var result = confirm("آیا از حذف این خدمت اطمینان دارید؟");
+                if (result) {
+                    var s_id = $(this).attr('s_id');
+                    var s_idsharp = '#' + s_id;
+
+                    $(s_idsharp).css('display', 'none');
+
+
+
+
+
+                    $.ajax({
+                        url: "ajax-db.php?" +
+                        "form=remove_service" +
+                        "&s_id=" + s_id +
+                        "", success: function (result) {
+                            $("#showr").text(result);
+                            $("#showr").fadeIn(1000);
+                            $("#showr").fadeOut(1000);
+                        }
+                    });
+
+                }
             });
         });
     </script>
@@ -365,13 +423,13 @@ switch ($pagename) { case "new-customer.php": ?>
                     "&percent_coop=" + percent_coop +
                     "", success: function(result){
 
-                    $('tbody').append('<tr>' +
-                             '<td>'+ name +'</td>' +
-                             '<td>'+ mobile +'</td>' +
-                             '<td>'+ start_coop +'</td>' +
-                             '<td>'+ percent_coop +'</td>' +
-                        '</tr>'
-                    );
+                        $('tbody').append('<tr>' +
+                            '<td>'+ name +'</td>' +
+                            '<td>'+ mobile +'</td>' +
+                            '<td>'+ start_coop +'</td>' +
+                            '<td>'+ percent_coop +'</td>' +
+                            '</tr>'
+                        );
 
                         $("#showr").text(result);
 
@@ -575,21 +633,21 @@ switch ($pagename) { case "new-customer.php": ?>
 
                 if (newpartnet !== null & newservice !== null & newcost.length > 0) {
 
-                //Calculate FistUse Credit
-                var addcredit = '';
-                if( $.inArray(service_id, taken_services) != -1){
-                    addcredit = '';
-                    firstuse = false;
-                }else{
-                    if( $.inArray(service_id, taken_services_now) != -1) {
+                    //Calculate FistUse Credit
+                    var addcredit = '';
+                    if( $.inArray(service_id, taken_services) != -1){
                         addcredit = '';
                         firstuse = false;
                     }else{
-                        addcredit = 'اولین استفاده : +' + ((newpay * fpercent) / 100);
-                        taken_services_now.push(service_id);
-                        firstuse = true;
+                        if( $.inArray(service_id, taken_services_now) != -1) {
+                            addcredit = '';
+                            firstuse = false;
+                        }else{
+                            addcredit = 'اولین استفاده : +' + ((newpay * fpercent) / 100);
+                            taken_services_now.push(service_id);
+                            firstuse = true;
+                        }
                     }
-                }
 
                     row_id ++;
 
@@ -726,8 +784,8 @@ switch ($pagename) { case "new-customer.php": ?>
                         $(".total").text($(".total").text() - deposit);
                         $(".deposit").text('0');
                     } else {
-                        $(".total").text('0');
                         $(".deposit").text(deposit - $(".total").text());
+                        $(".total").text('0');
                     }
                     $("#use_credit_pub").attr("disabled", true);
                     $("#add").prop('disabled', true);
@@ -764,8 +822,8 @@ switch ($pagename) { case "new-customer.php": ?>
                     all_s_name += $(this).find('td:nth-child(1)').text() + ',';
                     all_s_partner += $(this).find('td:nth-child(2)').text() + ',';
                     all_s_price += $(this).find('td:nth-child(3)').text() + ',';
-                //   all_s_credit_partner += $(this).find('td:nth-child(4)').text() + ',';
-                //  all_s_credit_cbox += $(this).find('td:nth-child(5)').text() + ',';
+                    //   all_s_credit_partner += $(this).find('td:nth-child(4)').text() + ',';
+                    //  all_s_credit_cbox += $(this).find('td:nth-child(5)').text() + ',';
                     all_s_credit_use += $(this).find('td:nth-child(6)').text() + ',';
                     all_s_payment += $(this).find('td:nth-child(7)').text() + ',';
                 });
@@ -781,8 +839,8 @@ switch ($pagename) { case "new-customer.php": ?>
                     '&allsname=' + all_s_name.replace(/^,|,$/g,'') +
                     '&allspartner=' + all_s_partner.replace(/^,|,$/g,'') +
                     '&allsprice=' + all_s_price.replace(/^,|,$/g,'') +
-                //  '&allscreditpartner=' + all_s_credit_partner.replace(/^,|,$/g,'') +
-                //  '&allscreditcbox=' + all_s_credit_cbox.replace(/^,|,$/g,'') +
+                    //  '&allscreditpartner=' + all_s_credit_partner.replace(/^,|,$/g,'') +
+                    //  '&allscreditcbox=' + all_s_credit_cbox.replace(/^,|,$/g,'') +
                     '&allscredituse=' + all_s_credit_use.replace(/^,|,$/g,'') +
                     '&allspayment=' + all_s_payment.replace(/^,|,$/g,'')
                 ;

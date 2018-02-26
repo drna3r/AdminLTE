@@ -47,18 +47,20 @@ include_once 'config.php';
                                 <th style="text-align: center;"> دوره چهارم</th>
                                 <th style="text-align: center;"> دوره پنجم</th>
                                 <th style="text-align: center;"></th>
+                                <th style="text-align: center;"></th>
                             </tr>
                             <tr>
                                 <td><input id="name" name="name" style="width: 100%;" type="text" placeholder="نام خدمت"></td>
                                 <td><input id="price" name="price" style="width: 60%;" type="text" placeholder="عدد قیمت"><span style="width: 40%;"> تومان</span></td>
                                 <td><span style="width: 20%;">%</span><input id="credit_in_first_use" name="credit_in_first_use" style="width: 80%;" type="text" placeholder="عددِ درصد"></td>
-                                <td><input id="period_use" name="period_use" style="width: 80%;" type="text" placeholder="عددِ روز"><span style="width: 20%;"> روز</span></td>
+                                <td><input id="period_use" name="period_use" style="width: 70%;" type="text" placeholder="عددِ روز"><span style="width: 20%;"> روز</span></td>
                                 <td><span style="width: 20%;">%</span><input id="pu_1" style="width: 80%;" type="text" placeholder="عددِ درصد"></td>
                                 <td><span style="width: 20%;">%</span><input id="pu_2" style="width: 80%;" type="text" placeholder="عددِ درصد"></td>
                                 <td><span style="width: 20%;">%</span><input id="pu_3" style="width: 80%;" type="text" placeholder="عددِ درصد"></td>
                                 <td><span style="width: 20%;">%</span><input id="pu_4" style="width: 80%;" type="text" placeholder="عددِ درصد"></td>
                                 <td><span style="width: 20%;">%</span><input id="pu_5" style="width: 80%;" type="text" placeholder="عددِ درصد"></td>
                                 <td><button id="submit" class="btn btn-primary">افزودن</button></td>
+                                <td></td>
                             </tr>
                             <?php
 
@@ -76,15 +78,18 @@ include_once 'config.php';
                             $result = $conn->query($sql);
 
                             while ($row = $result->fetch_assoc()) {
-                                echo '<tr>';
-                                echo '<td>' .$row['name']. '</td>';
-                                echo '<td>' .$row['price']. '</td>';
-                                echo '<td>' .$row['credit_in_first_use']. '</td>';
-                                echo '<td>' .$row['period_use']. '</td>';
+                                echo '<tr id="'.$row['id'].'">';
+                                echo '<td><input id="name" value="'. $row['name'] .'"></td>';
+                                echo '<td><input id="price" style="width: 80px;" value="'. $row['price'] .'"></td>';
+                                echo '<td><input id="credit_in_first_use" style="width: 40px;" value="'. $row['credit_in_first_use'] .'"></td>';
+                                echo '<td><input id="period_use" style="width: 40px;" value="'. $row['period_use'] .'"></td>';
+                                $i = 1;
                                 foreach (explode(',',$row['pu_t']) as $pu) {
-                                    echo "<td>".$pu."</td>";
+                                    echo '<td><input id="pu_'.$i.'" style="width: 40px;" value="'. $pu .'"></td>';
+                                    $i++;
                                 }
-                                echo '</tr>';
+                                echo '<td><button s_id="'.$row['id'].'" class="btn btn-primary update">ویرایش</button></td>';
+                                echo '<td><button s_id="'.$row['id'].'" class="btn btn-danger remove">حذف</button></td></tr>';
                             }
 
                             $conn->close();
@@ -95,7 +100,7 @@ include_once 'config.php';
                     </div>
                     <!-- /.box-body -->
 
-            </div>
+                </div>
 
         </section>
         <!-- /.content -->
