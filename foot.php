@@ -386,6 +386,59 @@ switch ($pagename) { case "new-customer.php": ?>
             });
         });
     </script>
+    <?php break; case "define-groups.php": ?>
+    <!---------------------------------------- define-groups.php ----------------------------------------------------------------------->
+    <script>
+        $(document).ready(function(){
+
+            $("#submit").click(function(){
+
+                //names
+                var n1 = $('#n1').val();
+                var n2 = $('#n2').val();
+                var n3 = $('#n3').val();
+                var n4 = $('#n4').val();
+
+                //percents
+                var p1 = Number($('#p1').val());
+                var p2 = Number($('#p2').val());
+                var p3 = Number($('#p3').val());
+                var p4 = Number($('#p4').val());
+
+                //upto
+                var u1 = Number($('#u1').val());
+                var u2 = Number($('#u2').val());
+                var u3 = Number($('#u3').val());
+                var u4 = Number($('#u4').val());
+
+                if(p1 < p2 & p2 < p3 & p3 < p4 & u1 < u2 & u2 < u3 & u3 < u4){
+                    $.ajax({url: "ajax-db.php?"+
+                        "form=update_groups" +
+                        "&n1=" + n1 +
+                        "&n2=" + n2 +
+                        "&n3=" + n3 +
+                        "&n4=" + n4 +
+                        "&p1=" + p1 +
+                        "&p2=" + p2 +
+                        "&p3=" + p3 +
+                        "&p4=" + p4 +
+                        "&u1=" + u1 +
+                        "&u2=" + u2 +
+                        "&u3=" + u3 +
+                        "&u4=" + u4 +
+                        "", success: function(result){
+
+                            $("#showr").text(result);
+                            $("#showr").fadeIn(5000);
+                            $("#showr").fadeOut(5000);
+
+                        }});
+                }else{
+                    alert('ترتیب اعداد را درست وارد کنید!');
+                }
+            });
+        });
+    </script>
     <?php break; case "invoice.php": ?>
     <!---------------------------------------- invoice.php ----------------------------------------------------------------------->
     <script src="plugins/jquery-qrcode/jquery.qrcode.min.js"></script>

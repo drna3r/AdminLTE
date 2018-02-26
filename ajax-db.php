@@ -207,6 +207,39 @@ VALUES ('$name', '$mobile', '$start_coop', '$percent_coop')";
         $conn->close();
         break;
 
+        /*--------------------------------------------- Form : update_groups ---------------------------------------------*/
+    case "update_groups":
+
+        $n1=$_GET["n1"];
+        $n2=$_GET["n2"];
+        $n3=$_GET["n3"];
+        $n4=$_GET["n4"];
+        $p1=$_GET["p1"];
+        $p2=$_GET["p2"];
+        $p3=$_GET["p3"];
+        $p4=$_GET["p4"];
+        $u1=$_GET["u1"];
+        $u2=$_GET["u2"];
+        $u3=$_GET["u3"];
+        $u4=$_GET["u4"];
+
+
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        //Set Charset UTF-8
+        $conn->set_charset("utf8");
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "UPDATE group_list SET description = '$value' WHERE id = $s_id";
+        if ($conn->query($sql) === TRUE) {echo " بروز شد!";} else {echo "Error: " . $sql . "<br>" . $conn->error;}
+
+        $conn->close();
+        break;
 
         /*-----------Defult------------*/
     default:
