@@ -89,12 +89,24 @@ switch ($pagename) { case "new-customer.php": ?>
     <script>
         $(function () {
             $('#example1').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax":{
+                    url :"ajax-db.php?form=customer-list", // json datasource
+                    error: function(){  // error handling
+                        $(".example1-error").html("");
+                        $("#example1").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+                        $("#example1_processing").css("display","none");
+
+                    }
+                },
                 "stateSave" : true,
                 "scrollX": true,
                 "bLengthChange": false,
                 "bInfo": false,
                 "oLanguage": {
                     "sSearch": "جستجوی مشتریان ",
+                    "sProcessing": "در حال دریافت اطلاعات ...",
                     "oPaginate": {
                         "sNext": "صفحه بعد",
                         "sPrevious": "صفحه قبل"

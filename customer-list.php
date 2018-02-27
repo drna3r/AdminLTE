@@ -55,54 +55,6 @@ include_once 'config.php';
                         <tbody>
 
 
-                        <?php
-                        // Create connection
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-
-                        //Set Charset UTF-8
-                        $conn->set_charset("utf8");
-
-                        // Check connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-
-                        $sql = "SELECT id, firstname, lastname, mobile, birthdate, introduction, last_visit, visit_count, cash, deposit, credit_public  FROM customer_list";
-                        $result = $conn->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while ($row = $result->fetch_assoc()) { ?>
-
-                                <tr>
-                                    <td><a href="./customer.php?id=<?php echo $row["id"]; ?>"><?php echo $row["id"]; ?></a></td>
-                                    <td><?php echo $row["firstname"]; ?></td>
-                                    <td><?php echo $row["lastname"]; ?></td>
-                                    <td><?php echo $row["mobile"]; ?></td>
-                                    <td><?php echo $row["birthdate"]; ?></td>
-                                    <td><?php echo $row["introduction"]; ?></td>
-                                    <td><?php echo $row["last_visit"]; ?></td>
-                                    <td><?php echo $row["visit_count"]; ?></td>
-                                    <td></td>
-                                    <td><?php echo $row["credit_public"]; ?></td>
-                                    <td></td>
-                                    <td><?php echo $row["cash"]; ?></td>
-                                    <td><?php echo $row["deposit"]; ?></td>
-                                    <td style="border-right: 1px solid #bcbcbc;text-align: center;"><a href="./invoice.php?id=<?php echo $row["id"]; ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></td>
-                                </tr>
-
-                         <?php
-                            }
-                        } else {
-                            echo "0 results";
-                        }
-
-                        $conn->close();
-
-                        ?>
-
-
-
 
                         </tbody>
                     </table>
