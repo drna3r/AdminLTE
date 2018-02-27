@@ -122,9 +122,14 @@ switch ($pagename) { case "new-customer.php": ?>
     <script src="bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="bower_components/datatables.net-buttons/js/buttons.colVis.min.js"></script>
     <script src="bower_components/jszip/dist/jszip.min.js"></script>
+    <!-- numberformat -->
+    <script src="bower_components/teamdf/jquery-number/jquery.number.min.js"></script>
+    <!-- persian-datepicker -->
+    <script src="bower_components/persian-date/dist/persian-date.js"></script>
+    <script src="bower_components/persian-datepicker/dist/js/persian-datepicker.min.js"></script>
+
     <!-- page script -->
     <script>
-
         $(document).ready(function(){
 
             $('.satisfaction').on('change', function() {
@@ -164,16 +169,44 @@ switch ($pagename) { case "new-customer.php": ?>
         $(function () {
             $('#example1').DataTable({
                 "stateSave" : true,
-                "bLengthChange": false,
-                    "sInfo": "نمایش _TOTAL_ مورد (_START_ تا _END_)",
+                //"searching": false,
+                "bLengthChange": true,
+                "lengthMenu": [[2, 5, 10, 15, 20, 100], [2, 5, 10, 15, 20, 100]],
                 "oLanguage": {
                     "sSearch": "جستجوی مشتریان ",
+                    "sLengthMenu": "تعداد ردیف مورد نمایش _MENU_",
+                    "sInfo": "نمایش _TOTAL_ مورد (_START_ تا _END_)",
+                    "sInfoFiltered": "فیلتر شده از مجموع _MAX_ خدمت مورد ارائه",
+                    "sZeroRecords": "فاکتوری برای نمایش وجود ندارد",
                     "oPaginate": {
                         "sNext": "صفحه بعد",
                         "sPrevious": "صفحه قبل"
                     },
                 },
-                dom: 'Bfrtip',
+
+                "footerCallback": function ( row, data, start, end, display ) {
+                    var api = this.api(), data;
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function ( i ) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '')*1 :
+                            typeof i === 'number' ?
+                                i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api.column(6).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+
+                    // Total over this page
+                    pageTotal = api.column( 6, { page: 'current'} ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+                    pageTotal = $.number(pageTotal);
+
+                    // Update footer
+                    $('#totalcost').text(pageTotal);
+                },
+
+                dom: 'Blfrtip',
                 buttons: [
                     { extend: 'print', text: 'پرینت' },
                     { extend: 'print', text: 'کپی' },
@@ -181,6 +214,62 @@ switch ($pagename) { case "new-customer.php": ?>
                     { extend: 'colvis', text: 'انتخاب ستون ها', columns: ':gt(1)'}
                 ]
             })
+
+            //Advenced Search / Search As Each Field
+            //General Search
+            $("#search-general").keyup(function(){
+                $('#example1').dataTable().api().search($(this).val(), true, false).draw();
+            });
+
+             //Customer Search
+            $("#search-customer").keyup(function(){
+                $('#example1').dataTable().api().columns(0).search($(this).val(), true, false).draw();
+            });
+
+            //Partner Search
+             $("#search-partner").keyup(function(){
+                $('#example1').dataTable().api().columns(5).search($(this).val(), true, false).draw();
+            });
+
+            //Date Search
+            $("#search-date").keyup(function(){
+                $('#example1').dataTable().api().columns(11).search($(this).val(), true, false).draw();
+            });
+
+            function search_date(){
+                val = $("#search-date").val();
+                $('#example1').dataTable().api().columns(11).search(val, true, false).draw();
+            };
+
+
+
+            //Persian Date Picker Lunch Search By Date
+            $(".pdpicker").pDatepicker({
+                observer: true,
+                format: 'YYYY/M/D',
+                initialValue: false,
+                autoClose: true,
+                calendar:{
+                    persian: {
+                        locale: 'en'
+                    }},
+                altField: '.observer-example-alt',
+                toolbox:{
+                    "enabled": false,
+                },
+                onSelect: function(){
+                    search_date();
+                }
+            });
+
+
+
+            //ResetAll Filter Input
+                $('#example1').dataTable().api().search($(this).val(), true, false).draw();
+                $('#example1').dataTable().api().columns(0).search('', true, false).draw();
+                $('#example1').dataTable().api().columns(5).search('', true, false).draw();
+                $('#example1').dataTable().api().columns(11).search('', true, false).draw();
+
         })
     </script>
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">

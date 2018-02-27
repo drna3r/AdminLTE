@@ -105,6 +105,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- DataTables -->
         <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
         <link rel="stylesheet" href="bower_components/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
+        <!-- persian-datepicker -->
+        <link rel="stylesheet" href="bower_components/persian-datepicker/dist/css/persian-datepicker.css"/>
+
+    <style>
+        .dataTables_filter {
+            display: none;
+        }
+    </style>
      <?php break; case "sale-report-invoice.php": ?>
         <!---------------------------------------- sale-report-invoice.php ----------------------------------------------------------------------->
         <!-- DataTables -->

@@ -33,6 +33,37 @@ include_once 'config.php';
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
+                    <div>جستجوی پیشرفته :</div>
+                    <div class="row" style="border: 1px solid gray;padding: 10px 10px;margin: 10px 10px;">
+                        <div class="col-md-3 form-group">
+                            <label style="float: right;">تاریخ</label>
+                            <input id="search-date" class="form-control pdpicker" placeholder="تاریخ"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;" type="text">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label style="float: right;">نام همکار</label>
+                            <input id="search-partner" class="form-control" placeholder="نام همکار"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;" type="text">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label style="float: right;">نام مشتری</label>
+                            <input id="search-customer" class="form-control" placeholder="نام مشتری"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;" type="text">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label style="float: right;">جستجوی عمومی</label>
+                            <input id="search-general" class="form-control" placeholder="جستجوی عمومی"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;" type="text">
+                        </div>
+                    </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
@@ -51,6 +82,25 @@ include_once 'config.php';
                             <th>ساعت</th>
                         </tr>
                         </thead>
+                        <tfoot>
+                        <tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="totalcost" style="background: #000;color: #fff;">0</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tr>
+                        </tfoot>
                         <tbody>
 
 
@@ -136,10 +186,6 @@ include_once 'config.php';
                         $conn->close();
 
                         ?>
-
-
-
-
                         </tbody>
                     </table>
                 </div>
