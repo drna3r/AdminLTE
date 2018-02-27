@@ -100,6 +100,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- DataTables -->
         <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
         <link rel="stylesheet" href="bower_components/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
+        <style>
+            #example1_processing{
+                z-index: 10 !important;
+            }
+        </style>
     <?php break; case "sale-report-service.php": ?>
         <!---------------------------------------- sale-report-service.php ----------------------------------------------------------------------->
         <!-- DataTables -->
