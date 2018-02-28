@@ -11,6 +11,8 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- Cleave.js -->
 <script src="bower_components/cleave.js/dist/cleave.js"></script>
+<!-- PersianNumber.js -->
+<script src="plugins/persiannumber/persianumber.min.js"></script>
 
 
 <!-------------------------------
