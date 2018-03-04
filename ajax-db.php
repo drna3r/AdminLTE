@@ -61,7 +61,7 @@ switch ($form) {
         while( $row=mysqli_fetch_array($query) ) {  // preparing an array
             $nestedData=array();
 
-            $nestedData[] = $row["id"];
+            $nestedData[] = '<td style="border-right: 1px solid #bcbcbc;text-align: center;"><a href="./customer.php?id='.$row["id"].'">'.$row["id"].'</a></td>';
             $nestedData[] = $row["firstname"];
             $nestedData[] = $row["lastname"];
             $nestedData[] = $row["mobile"];
