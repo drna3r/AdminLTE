@@ -247,12 +247,19 @@ switch ($pagename) { case "new-customer.php": ?>
 
             //Date Search
             $("#search-date").keyup(function(){
-                $('#example1').dataTable().api().columns(11).search($(this).val(), true, false).draw();
+                val = $(this).val();
+                regExSearch = '^' + val +'$';
+                if(val !=='') {
+                    $('#example1').dataTable().api().columns(11).search(regExSearch, true, false).draw();
+                }else{
+                    $('#example1').dataTable().api().columns(11).search('', true, false).draw();
+                }
             });
 
             function search_date(){
                 val = $("#search-date").val();
-                $('#example1').dataTable().api().columns(11).search(val, true, false).draw();
+                regExSearch = '^' + val +'$';
+                $('#example1').dataTable().api().columns(11).search(regExSearch, true, false).draw();
             };
 
 
