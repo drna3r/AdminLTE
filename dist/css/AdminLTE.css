@@ -10,6 +10,63 @@
  * -------------------------
  * RTL : Nasser Niroumandi
  */
+
+/*
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (DMZ3N)
+--------------------------------------------------------------------------------------
+*/
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 900;
+  src: url('./fonts/eot/IRANSansWeb_Black.eot');
+  src: url('./fonts/eot/IRANSansWeb_Black.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+  url('./fonts/woff/IRANSansWeb_Black.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: bold;
+  src: url('./fonts/eot/IRANSansWeb_Bold.eot');
+  src: url('./fonts/eot/IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+  url('./fonts/woff/IRANSansWeb_Bold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/eot/IRANSansWeb_Medium.eot');
+  src: url('./fonts/eot/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+  url('./fonts/woff/IRANSansWeb_Medium.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/eot/IRANSansWeb_Light.eot');
+  src: url('./fonts/eot/IRANSansWeb_Light.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+  url('./fonts/woff/IRANSansWeb_Light.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 200;
+  src: url('./fonts/eot/IRANSansWeb_UltraLight.eot');
+  src: url('./fonts/eot/IRANSansWeb_UltraLight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+  url('./fonts/woff/IRANSansWeb_UltraLight.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/eot/IRANSansWeb.eot');
+  src: url('./fonts/eot/IRANSansWeb.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+  url('./fonts/woff/IRANSansWeb.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+
 html,
 body {
   height: 100%;
@@ -19,7 +76,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: IRANSans,tahoma !important;
+  font-family: 'IRANSans',tahoma !important;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
@@ -163,7 +220,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: IRANSans, 'Source Sans Pro', sans-serif;
+  font-family: 'IRANSans', 'Source Sans Pro', sans-serif;
 }
 /* General Links */
 a {
@@ -295,7 +352,7 @@ a:focus {
   line-height: 50px;
   text-align: center;
   width: 230px;
-  font-family: IRANSans,tahoma;
+  font-family: 'IRANSans',tahoma;
   padding: 0 15px;
   font-weight: 300;
   overflow: hidden;
