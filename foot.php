@@ -384,6 +384,27 @@ switch ($pagename) { case "new-customer.php": ?>
                 ]
             })
         })
+
+        $(".remove").click(function() {
+
+            var invoice_id = $(this).attr('invoice_id');
+
+            if (confirm("آیا از حذف فاکتور" + invoice_id + " مطمئن هستید؟ \n تذکر : فاکتور مورد نظر پس از حذف امکان بازیابی نخواهد داشت. ")) {
+
+            $.ajax({
+                url: "ajax-db.php?" +
+                "form=remove_invoice" +
+                "&invoice_id=" + invoice_id +
+                "", success: function (result) {
+
+                    console.log(result);
+                    $("#" + invoice_id).fadeOut(500);
+
+                }
+            });
+
+        }
+        });
     </script>
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <?php break; case "define-service.php": ?>

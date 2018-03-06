@@ -157,6 +157,40 @@ VALUES ('$name', '$price', '$credit_in_first_use', '$period_use', '$pu_t')";
         $conn->close();
         break;
 
+    /*--------------------------------------------- Form : remove_invoice ---------------------------------------------*/
+    case "remove_invoice":
+
+        $invoice_id = $_GET["invoice_id"];
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        //Set Charset UTF-8
+        $conn->set_charset("utf8");
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "DELETE FROM invoice_list WHERE id = $invoice_id";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "خدمت مورد نظر حذف شد!";
+            $sql = "DELETE FROM invoice_service_list WHERE invoice_id = $invoice_id";
+            if ($conn->query($sql) === TRUE) {
+                echo "خدمت مورد نظر حذف شد!";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+
+
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+        break;
+
     /*--------------------------------------------- Form : remove_service ---------------------------------------------*/
     case "remove_service":
 

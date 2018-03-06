@@ -45,6 +45,7 @@ include_once 'config.php';
                             <th>مبلغ پرداختی</th>
                             <th>تاریخ</th>
                             <th>ساعت</th>
+                            <th>حذف</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -75,7 +76,7 @@ include_once 'config.php';
                                 $customer_name = $customer_name['firstname'] .' '. $customer_name['lastname'];
                                 ?>
 
-                                <tr>
+                                <tr id="<?php echo $row["id"]; ?>">
                                     <td><?php echo $row["id"]; ?></td>
                                     <td><?php echo $customer_name; ?></td>
                                     <td><?php echo $row["total_service"]; ?></td>
@@ -85,6 +86,7 @@ include_once 'config.php';
                                     <td><?php echo $row["total_payment"]; ?></td>
                                     <td><?php echo $row["date"]; ?></td>
                                     <td><?php echo $row["time"]; ?></td>
+                                    <td style="text-align: center;"><button invoice_id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs remove">حذف</button></td></td>
                                 </tr>
 
                                 <?php
