@@ -104,17 +104,18 @@ switch ($pagename) { case "new-customer.php": ?>
                 },
                 "stateSave" : true,
                 "scrollX": true,
-                "bLengthChange": false,
+                "lengthMenu": [[2, 5, 10, 15, 20, 100, 999999999], [2, 5, 10, 15, 20, 100, "همه"]],
                 "bInfo": false,
                 "oLanguage": {
                     "sSearch": "جستجوی مشتریان ",
                     "sProcessing": "در حال دریافت اطلاعات ...",
+                    "sLengthMenu": "تعداد ردیف مورد نمایش _MENU_",
                     "oPaginate": {
                         "sNext": "صفحه بعد",
                         "sPrevious": "صفحه قبل"
                     },
                 },
-                dom: 'Bfrtip',
+                dom: 'Blfrtip',
                 buttons: [
                     { extend: 'print', text: 'پرینت' },
                     { extend: 'print', text: 'کپی' },
