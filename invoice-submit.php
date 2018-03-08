@@ -56,4 +56,4 @@ if ($conn->query($sql) === TRUE) {} else {echo "Error: " . $sql . "<br>" . $conn
 $conn->close();
 
 
-echo "<script>window.location = '../sale-report-invoice.php';</script>";
+echo "<script>window.location = '../customer-list.php';</script>";
