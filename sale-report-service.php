@@ -74,6 +74,7 @@ include_once 'config.php';
                             <th>نام خدمت</th>
                             <th>نام همکار</th>
                             <th>قیمت</th>
+                            <th>درصد همکار</th>
                             <th>اعتبار استفاده شده</th>
                             <th>مبلغ پرداختی</th>
                             <td>رضایت مشتری</td>
@@ -92,6 +93,7 @@ include_once 'config.php';
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td id="totalpercent" style="background: #000;color: #fff;">0</td>
                             <td></td>
                             <td id="totalcost" style="background: #000;color: #fff;">0</td>
                             <td></td>
@@ -136,6 +138,12 @@ include_once 'config.php';
                                 $customer = $customer->fetch_assoc();
                                 $customer_name = $customer['firstname'] .' '. $customer['lastname'];
                                 $customer_mobile = $customer['mobile'];
+
+                                $partner_name = $row["partner"];
+                                $partner_percent = "SELECT percent_coop FROM partners_list WHERE name = '$partner_name'";
+                                $partner_percent = $conn->query($partner_percent);
+                                $partner_percent = $partner_percent->fetch_assoc();
+                                $partner_percent = $partner_percent['percent_coop'];
                                 ?>
 
                                 <tr>
@@ -146,6 +154,7 @@ include_once 'config.php';
                                     <td><?php echo $row["name"]; ?></td>
                                     <td><?php echo $row["partner"]; ?></td>
                                     <td><?php echo $row["price"]; ?></td>
+                                    <td><?php echo ($row["price"] * $partner_percent) / 100; ?></td>
                                     <td><?php echo $row["credit_use"]; ?></td>
                                     <td><?php echo $row["payment"]; ?></td>
                                     <?php

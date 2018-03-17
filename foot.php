@@ -219,6 +219,16 @@ switch ($pagename) { case "new-customer.php": ?>
 
                     // Update footer
                     $('#totalcost').text(pageTotal);
+
+                    // Total Partner Percent over all pages
+                    total_pp = api.column(7).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+
+                    // Total Partner Percent over this page
+                    pageTotal_pp = api.column( 7, { page: 'current'} ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+                    pageTotal_pp = $.number(pageTotal_pp);
+
+                    // Update footer
+                    $('#totalpercent').text(pageTotal_pp);
                 },
 
                 dom: 'Blfrtip',
