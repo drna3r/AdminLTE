@@ -256,6 +256,69 @@ switch ($pagename) { case "new-customer.php": ?>
                 $('#example1').dataTable().api().columns(5).search($(this).val(), true, false).draw();
             });
 
+
+             //Define Date Column Variable
+             var date_column = $('#example1').dataTable().api().columns(12);
+
+            //Date Search
+            $(".search-date").keyup(function(){
+
+                year = $('#search-date-y').val();
+                month = $('#search-date-m').val();
+                day = $('#search-date-d').val();
+
+
+                if(year !=='') {
+                    year = year.split("");
+                    year = '[' + year[0] + '][' + year[1] + '][' + year[2] + '][' + year[3] + ']';
+                }else{
+                     year = '[1][3-4][0-9][0-9]';
+                }
+
+                if(month !=='') {
+                    if(month < 9){
+                        month = '[' + month + ']';
+                    }else{
+                        month = month.split("");
+                        month = '[' + month[0] + '][' + month[1] + ']';
+                    }
+                }else{
+                    month = '\\d{1,2}';
+                }
+
+                if(day !=='') {
+                    if(day < 9){
+                        day = '[' + day + ']';
+                    }else{
+                        day = day.split("");
+                        day = '[' + day[0] + '][' + day[1] + ']';
+                    }
+                }else{
+                    day = '\\d{1,2}';
+                }
+
+                regExSearch = '^'+ year +'[/]'+ month +'[/]' + day + '$';
+                date_column.search(regExSearch, true, false).draw();
+            });
+
+
+            /*
+
+            //Date Search / Besed On " Month "
+            $("#search-date-m").keyup(function(){
+                val = $(this).val();
+                if(val < 9){
+                    regExSearch = '^[1][3-4][0-9][0-9][/][' + val + '][/]\\d{1,2}$';
+                }else{
+                    val = val.split("");
+                    regExSearch = '^[1][3-4][0-9][0-9][/][' + val[0] + '][' + val[1] + '][/]\\d{1,2}$';
+                }
+                if(val !=='') {
+                    date_column.search(regExSearch, true, false).draw();
+                }else{
+                    date_column.search('', true, false).draw();
+                }
+            });
             //Date Search
             $("#search-date").keyup(function(){
                 val = $(this).val();
@@ -272,8 +335,6 @@ switch ($pagename) { case "new-customer.php": ?>
                 regExSearch = '^' + val +'$';
                 $('#example1').dataTable().api().columns(11).search(regExSearch, true, false).draw();
             };
-
-
 
             //Persian Date Picker Lunch Search By Date
             $(".pdpicker").pDatepicker({
@@ -294,6 +355,7 @@ switch ($pagename) { case "new-customer.php": ?>
                 }
             });
 
+            */
 
 
             //ResetAll Filter Input

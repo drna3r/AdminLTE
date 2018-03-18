@@ -35,9 +35,23 @@ include_once 'config.php';
                 <div class="box-body">
                     <div>جستجوی پیشرفته :</div>
                     <div class="row" style="border: 1px solid gray;padding: 10px 10px;margin: 10px 10px;">
-                        <div class="col-md-3 form-group">
-                            <label style="float: right;">تاریخ</label>
-                            <input id="search-date" class="form-control pdpicker" placeholder="تاریخ"  style="
+                        <div class="col-md-1 form-group">
+                            <label style="float: right;">سال</label>
+                            <input id="search-date-y" class="search-date form-control" placeholder="سال"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                           cursor: auto;text-align: right;" type="text">
+                        </div>
+                         <div class="col-md-1 form-group">
+                            <label style="float: right;">ماه</label>
+                            <input id="search-date-m" class="search-date form-control" placeholder="ماه"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;" type="text">
+                        </div>
+                         <div class="col-md-1 form-group">
+                            <label style="float: right;">روز</label>
+                            <input id="search-date-d" class="search-date form-control" placeholder="روز"  style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
                                cursor: auto;text-align: right;" type="text">
