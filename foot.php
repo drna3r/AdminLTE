@@ -305,7 +305,7 @@ switch ($pagename) { case "new-customer.php": ?>
                 $('#example1').dataTable().api().search($(this).val(), true, false).draw();
                 $('#example1').dataTable().api().columns(0).search('', true, false).draw();
                 $('#example1').dataTable().api().columns(5).search('', true, false).draw();
-                $('#example1').dataTable().api().columns(11).search('', true, false).draw();
+                $('#example1').dataTable().api().columns(12).search('', true, false).draw();
 
         })
     </script>
