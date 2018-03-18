@@ -301,63 +301,6 @@ switch ($pagename) { case "new-customer.php": ?>
                 date_column.search(regExSearch, true, false).draw();
             });
 
-
-            /*
-
-            //Date Search / Besed On " Month "
-            $("#search-date-m").keyup(function(){
-                val = $(this).val();
-                if(val < 9){
-                    regExSearch = '^[1][3-4][0-9][0-9][/][' + val + '][/]\\d{1,2}$';
-                }else{
-                    val = val.split("");
-                    regExSearch = '^[1][3-4][0-9][0-9][/][' + val[0] + '][' + val[1] + '][/]\\d{1,2}$';
-                }
-                if(val !=='') {
-                    date_column.search(regExSearch, true, false).draw();
-                }else{
-                    date_column.search('', true, false).draw();
-                }
-            });
-            //Date Search
-            $("#search-date").keyup(function(){
-                val = $(this).val();
-                regExSearch = '^' + val +'$';
-                if(val !=='') {
-                    $('#example1').dataTable().api().columns(11).search(regExSearch, true, false).draw();
-                }else{
-                    $('#example1').dataTable().api().columns(11).search('', true, false).draw();
-                }
-            });
-
-            function search_date(){
-                val = $("#search-date").val();
-                regExSearch = '^' + val +'$';
-                $('#example1').dataTable().api().columns(11).search(regExSearch, true, false).draw();
-            };
-
-            //Persian Date Picker Lunch Search By Date
-            $(".pdpicker").pDatepicker({
-                observer: true,
-                format: 'YYYY/M/D',
-                initialValue: false,
-                autoClose: true,
-                calendar:{
-                    persian: {
-                        locale: 'en'
-                    }},
-                altField: '.observer-example-alt',
-                toolbox:{
-                    "enabled": false,
-                },
-                onSelect: function(){
-                    search_date();
-                }
-            });
-
-            */
-
-
             //ResetAll Filter Input
                 $('#example1').dataTable().api().search($(this).val(), true, false).draw();
                 $('#example1').dataTable().api().columns(0).search('', true, false).draw();
