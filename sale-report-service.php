@@ -56,14 +56,21 @@ include_once 'config.php';
                                background-size: 16px 18px; background-position: 98% 50%;
                                cursor: auto;text-align: right;" type="text">
                         </div>
-                        <div class="col-md-3 form-group">
+                         <div class="col-md-2 form-group">
                             <label style="float: right;">نام همکار</label>
                             <input id="search-partner" class="form-control" placeholder="نام همکار"  style="
                                background-repeat: no-repeat; background-attachment: scroll;
                                background-size: 16px 18px; background-position: 98% 50%;
                                cursor: auto;text-align: right;" type="text">
                         </div>
-                        <div class="col-md-3 form-group">
+                        <div class="col-md-2 form-group">
+                            <label style="float: right;">نام خدمت</label>
+                            <input id="search-service" class="form-control" placeholder="نام خدمت"  style="
+                               background-repeat: no-repeat; background-attachment: scroll;
+                               background-size: 16px 18px; background-position: 98% 50%;
+                               cursor: auto;text-align: right;" type="text">
+                        </div>
+                        <div class="col-md-2 form-group">
                             <label style="float: right;">نام مشتری</label>
                             <input id="search-customer" class="form-control" placeholder="نام مشتری"  style="
                                background-repeat: no-repeat; background-attachment: scroll;

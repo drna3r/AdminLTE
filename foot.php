@@ -256,6 +256,11 @@ switch ($pagename) { case "new-customer.php": ?>
                 $('#example1').dataTable().api().columns(5).search($(this).val(), true, false).draw();
             });
 
+            //Services Search
+             $("#search-service").keyup(function(){
+                $('#example1').dataTable().api().columns(4).search($(this).val(), true, false).draw();
+            });
+
 
              //Define Date Column Variable
              var date_column = $('#example1').dataTable().api().columns(12);
@@ -305,6 +310,7 @@ switch ($pagename) { case "new-customer.php": ?>
                 $('#example1').dataTable().api().search($(this).val(), true, false).draw();
                 $('#example1').dataTable().api().columns(0).search('', true, false).draw();
                 $('#example1').dataTable().api().columns(5).search('', true, false).draw();
+                $('#example1').dataTable().api().columns(4).search('', true, false).draw();
                 $('#example1').dataTable().api().columns(12).search('', true, false).draw();
 
         })
